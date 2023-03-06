@@ -1,4 +1,5 @@
 import { CardProfile } from "../../components/CardProfile";
+import backgrounHeader from "../../assets/backgrounHeader.png"
 
 export const ProfilePage = () =>(
     <>
@@ -7,7 +8,7 @@ export const ProfilePage = () =>(
         <span>Home</span>
         <span>Sair</span>
     </div>
-        <img src="" alt="" />
+        <img src={backgrounHeader} alt="Imagem de fundo" />
         <h2>U</h2>
         <h1>User name</h1>
     </header>
