@@ -1,3 +1,5 @@
+import { CardProfile } from "../../components/CardProfile";
+
 export const ProfilePage = () =>(
-    <h1>Ola</h1>
+    console.log("ola")
 )
