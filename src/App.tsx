@@ -1,5 +1,6 @@
 
 import './App.css'
+import { Router } from './routes'
 import { GlobalStyles } from './styles/global'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
      <GlobalStyles/>
+     <Router/>
     </div>
   )
 }
