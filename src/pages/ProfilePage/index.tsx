@@ -1,3 +1,3 @@
 export const ProfilePage = () =>(
-    console.log("ola")
+    <h1>Ola</h1>
 )
