@@ -1,5 +1,3 @@
-
-import './App.css'
 import { Router } from './routes'
 import { GlobalStyles } from './styles/global'
 
