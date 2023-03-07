@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProfileContext } from "../../providers/profileContext";
 
 export const CardProfile = () => {
-  const { cities, setModal } = useContext(ProfileContext);
+  const { cities, setModal, setCityFromClick } = useContext(ProfileContext);
   if(cities){
       return (
           <>
@@ -19,6 +19,7 @@ export const CardProfile = () => {
               <span>{city?.data}</span>
               <button onClick={() =>{
                 setModal(true)
+                setCityFromClick(city)
               }}>Editar</button>
             </div>
           </li>

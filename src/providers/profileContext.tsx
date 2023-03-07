@@ -28,15 +28,19 @@ interface IData {
 interface IProfileContext {
     editCityFromUser: (data: IData) => Promise<void>
     cities: ICities[] | Array<null>
+    dellCity: (id: any) => Promise<void>
     logoutUser: () => void
     homePageUser: () => void
     modal: boolean
     setModal: React.Dispatch<React.SetStateAction<boolean>>
+    cityFromClick: ICities | null
+    setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>
 }
+
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MTQ4OTMwLCJleHAiOjE2NzgxNTI1MzAsInN1YiI6IjIifQ.JdS8GALWtRb2aBFhLEMbZc2f81wk24kzIAaEpDloxdo"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MTkzNzk5LCJleHAiOjE2NzgxOTczOTksInN1YiI6IjIifQ.xCdHC1LERWGTYMcW-XPQxEdgQT8FvMCboqXIt9Au45s"
 
 export const ProfileProvider = ({children}: IProviderProps) => {
 
@@ -72,6 +76,18 @@ export const ProfileProvider = ({children}: IProviderProps) => {
         }
     }
 
+    const dellCity = async (id:any)=>{
+        try {
+            const response = await api.delete(`/citie/${id}` ,{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+        } catch (error) {
+            toast.error("Error, por favor tente novamente")
+        }
+    }
+
     const Navigate = useNavigate()
 
     const logoutUser = () =>{
@@ -85,8 +101,10 @@ export const ProfileProvider = ({children}: IProviderProps) => {
 
     const [modal, setModal] = useState(false)
 
+    const [cityFromClick, setCityFromClick] = useState<ICities | null>(null)
+
     
-  return <ProfileContext.Provider value={{cities, editCityFromUser, logoutUser, homePageUser, modal, setModal}}>
+  return <ProfileContext.Provider value={{cities, editCityFromUser, dellCity, logoutUser, homePageUser, modal, setModal, cityFromClick, setCityFromClick}}>
     {children}
     </ProfileContext.Provider>;
 };
