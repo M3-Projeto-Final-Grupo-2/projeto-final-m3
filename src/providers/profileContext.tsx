@@ -40,15 +40,15 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MTkzNzk5LCJleHAiOjE2NzgxOTczOTksInN1YiI6IjIifQ.xCdHC1LERWGTYMcW-XPQxEdgQT8FvMCboqXIt9Au45s"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MjAxODk3LCJleHAiOjE2NzgyMDU0OTcsInN1YiI6IjIifQ.Newxf2NGgx_kIl-ljW3_w96Poxv6pxOxjOliOuJvm4c"
 
 export const ProfileProvider = ({children}: IProviderProps) => {
 
     const [cities, setCities] = useState<ICities[] | null[]>([])
+    // const token = localStorage.getItem("")
 
     useEffect(() =>{
         const getAllCitiesFromUser = async ()=>{
-            // const token = localStorage.getItem("")
             try {
                 const response = await api.get(`/cities?userid=${userId}`, {
                     headers: {
@@ -64,13 +64,13 @@ export const ProfileProvider = ({children}: IProviderProps) => {
     }, [])
 
     const editCityFromUser = async (data: IData) =>{
-            // const token = localStorage.getItem("")
         try {
-            const reponse = await api.patch(`/cities/${cityId}`,  data, {
+            const response = await api.patch(`/cities/${cityId}`,  data, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
             })
+            setCities(response.data)
         } catch (error) {
             toast.error("Error, por favor tente novamente")
         }
@@ -83,6 +83,7 @@ export const ProfileProvider = ({children}: IProviderProps) => {
                     Authorization: `Bearer ${token}`,
                 }
             })
+            setCities(response.data)
         } catch (error) {
             toast.error("Error, por favor tente novamente")
         }

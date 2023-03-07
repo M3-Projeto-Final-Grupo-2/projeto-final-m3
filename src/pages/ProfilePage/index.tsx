@@ -3,6 +3,7 @@ import backgrounHeader from "../../assets/backgrounHeader.png";
 import { useContext } from "react";
 import { ProfileContext } from "../../providers/profileContext";
 import { ModalProfilePage } from "../../components/Modal/ModalProfilePage";
+import { StyledHeader } from "./style";
 
 export const ProfilePage = () => {
   const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
@@ -11,8 +12,8 @@ export const ProfilePage = () => {
     {
         modal? <ModalProfilePage/>: null
     }
-      <header>
-        <div>
+      <StyledHeader>
+        <div className="conatiner__buttons">
           <span
             onClick={() => {
               homePageUser();
@@ -31,7 +32,7 @@ export const ProfilePage = () => {
         <img src={backgrounHeader} alt="Imagem de fundo" />
         <h2>U</h2>
         <h1>User name</h1>
-      </header>
+      </StyledHeader>
       <div>
         <main>
           <div>
