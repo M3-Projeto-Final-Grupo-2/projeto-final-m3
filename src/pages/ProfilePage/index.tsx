@@ -15,8 +15,8 @@ export const ProfilePage = () => {
   const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
   return (
     <>
-      {modal ? <ModalProfilePage /> : null}
       <StyledOver>
+      {modal ? <ModalProfilePage /> : null}
         <StyledHeader>
           <div className="conatiner__buttons">
             <span
