@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const StyledOver = styled.header`
+export const StyledOver = styled.div`
   overflow-x: hidden;
   background-color: #001318;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StyledHeader = styled.header`
@@ -110,19 +114,19 @@ export const StyledMain = styled.main`
     background-color: #d9d9d9;
     border-radius: 4px;
 
-    .tilte__card{
-        margin: 20px;
-        font-size: 1.1rem;
-        font-weight: bold;
+    .tilte__card {
+      margin: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
     }
 
-    ul{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        overflow: auto;
-        height: 50vh;
-        margin-bottom: 20px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: auto;
+      height: 50vh;
+      margin-bottom: 20px;
     }
   }
 `;

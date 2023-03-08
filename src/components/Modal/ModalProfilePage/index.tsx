@@ -3,6 +3,7 @@ import { ProfileContext } from "../../../providers/profileContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { StyledContainerModal } from "./style";
 
 interface IData {
     description: string
@@ -23,7 +24,7 @@ export const ModalProfilePage = () => {
     console.log(data);
   };
   return (
-    <div>
+    <StyledContainerModal>
         <h2>{cityFromClick?.name} - {cityFromClick?.state}</h2>
       <span
         onClick={() => {
@@ -44,6 +45,6 @@ export const ModalProfilePage = () => {
                 dellCity(cityFromClick?.id)
             }
         }}>Excluir</button>
-    </div>
+    </StyledContainerModal>
   );
 };

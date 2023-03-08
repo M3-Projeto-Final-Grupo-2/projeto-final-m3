@@ -40,17 +40,17 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4Mjk3MjEyLCJleHAiOjE2NzgzMDA4MTIsInN1YiI6IjIifQ.j7b-TOvMRWYktkLk2QmtX_iqQeDoRrJdWEPGTsg7SJ4"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzAxMDA3LCJleHAiOjE2NzgzMDQ2MDcsInN1YiI6IjIifQ._CDb3O-AIKb3jiFwV3-wuyw00oLQj4qxSa7mZi6Jph0"
 
 export const ProfileProvider = ({children}: IProviderProps) => {
 
-    const [cities, setCities] = useState<ICities[] | null[]>([])
+    const [cities, setCities] = useState<ICities[]>([])
     // const token = localStorage.getItem("")
 
     useEffect(() =>{
         const getAllCitiesFromUser = async ()=>{
             try {
-                const response = await api.get(`/cities?userid=${userId}`, {
+                const response = await api.get(`/cities?userId=${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
@@ -78,13 +78,14 @@ export const ProfileProvider = ({children}: IProviderProps) => {
 
     const dellCity = async (id:number)=>{
         try {
-            const response = await api.delete(`/citie/${id}` ,{
+            const response = await api.delete(`/cities/${id}` ,{
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
             })
-            console.log("teste")
-            // setCities(response.data)
+          const citiesFiltered = cities.filter((city:ICities)=> city.id !==id)
+          setCities(citiesFiltered)
+          setModal(false)
         } catch (error) {
             toast.error("Error, por favor tente novamente")
         }
