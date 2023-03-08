@@ -38,12 +38,12 @@ export const ModalProfilePage = () => {
         {/* <label htmlFor="image">Imagem da viagem</label>
         <input type="text" id="image" {...register("image")} /> */}
         <button type="submit">Editar</button>
+        </form>
         <button onClick={() =>{
             if(cityFromClick){
                 dellCity(cityFromClick?.id)
             }
         }}>Excluir</button>
-      </form>
     </div>
   );
 };
