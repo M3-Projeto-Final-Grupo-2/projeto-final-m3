@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { ProfilePage } from "./pages/ProfilePage";
+import LoginPage from "./pages/LoginPage";
 
 export const Router = () => (
-    <Routes>
-        {/* add as rotas aqui */}
-        <Route path="/profile" element={<ProfilePage/>}/>
-    </Routes>
-)
+  <Routes>
+    <Route path="/" element={<LoginPage />} />
+  </Routes>
+);
