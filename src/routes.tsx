@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ProfilePage } from "./pages/ProfilePage";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { RegisterProvider } from "./providers/RegisterContext";
 import { ProfileProvider } from "./providers/profileContext";

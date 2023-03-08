@@ -102,7 +102,7 @@ export const StyledMain = styled.main`
   width: 100vw;
   margin-bottom: 32px;
 
-  div {
+  .container__list {
     display: flex;
     flex-direction: column;
     width: 90%;

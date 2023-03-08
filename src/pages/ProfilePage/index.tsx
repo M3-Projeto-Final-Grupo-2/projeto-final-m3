@@ -42,7 +42,7 @@ export const ProfilePage = () => {
         </StyledHeader>
         <StyledFlexDirection>
           <StyledMain>
-            <div>
+            <div className="container__list">
               <h2 className="tilte__card">Suas viagens:</h2>
               <ul>
                 <CardProfile />

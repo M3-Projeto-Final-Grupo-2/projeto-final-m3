@@ -40,7 +40,7 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MjgzODM1LCJleHAiOjE2NzgyODc0MzUsInN1YiI6IjIifQ.oj45Lps1VIJQFPGfGn_zQibdUnTo-LFh_cgVvntZwlc"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4Mjk3MjEyLCJleHAiOjE2NzgzMDA4MTIsInN1YiI6IjIifQ.j7b-TOvMRWYktkLk2QmtX_iqQeDoRrJdWEPGTsg7SJ4"
 
 export const ProfileProvider = ({children}: IProviderProps) => {
 
@@ -76,14 +76,15 @@ export const ProfileProvider = ({children}: IProviderProps) => {
         }
     }
 
-    const dellCity = async (id:any)=>{
+    const dellCity = async (id:number)=>{
         try {
             const response = await api.delete(`/citie/${id}` ,{
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
             })
-            setCities(response.data)
+            console.log("teste")
+            // setCities(response.data)
         } catch (error) {
             toast.error("Error, por favor tente novamente")
         }
