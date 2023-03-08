@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { FormContainer } from "./style";
 
 const FormLogin = () => {
-  const {} = useContext();
+  /* const {} = useContext();
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ const FormLogin = () => {
   } = useForm({ resolver: yupResolver() });
 
   const submit = (data) => {};
-
+ */
   return (
     <FormContainer>
       <h2>Login</h2>
