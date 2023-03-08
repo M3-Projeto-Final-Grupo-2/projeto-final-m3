@@ -40,7 +40,7 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MjAxODk3LCJleHAiOjE2NzgyMDU0OTcsInN1YiI6IjIifQ.Newxf2NGgx_kIl-ljW3_w96Poxv6pxOxjOliOuJvm4c"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MjgzODM1LCJleHAiOjE2NzgyODc0MzUsInN1YiI6IjIifQ.oj45Lps1VIJQFPGfGn_zQibdUnTo-LFh_cgVvntZwlc"
 
 export const ProfileProvider = ({children}: IProviderProps) => {
 
