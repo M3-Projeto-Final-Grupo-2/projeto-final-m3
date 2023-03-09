@@ -5,6 +5,8 @@ import { CitiesContext, IPost } from "../../providers/citiesContext";
 const PostsList = () => {
 
     const {posts} = useContext(CitiesContext)
+    console.log(posts);
+    
     return(
       
             <ul>
