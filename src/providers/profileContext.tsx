@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "../services/api";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
 
@@ -40,7 +40,7 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzAxMDA3LCJleHAiOjE2NzgzMDQ2MDcsInN1YiI6IjIifQ._CDb3O-AIKb3jiFwV3-wuyw00oLQj4qxSa7mZi6Jph0"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzgxOTE4LCJleHAiOjE2NzgzODU1MTgsInN1YiI6IjIifQ.PVM7JEQ5OFCbgAMnAiYQg2OZ5xpW54CKk4kI3IKHgDQ"
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
 
