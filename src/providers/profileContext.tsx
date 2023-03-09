@@ -40,12 +40,12 @@ interface IProfileContext {
 
 const userId = 2
 const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzgxOTE4LCJleHAiOjE2NzgzODU1MTgsInN1YiI6IjIifQ.PVM7JEQ5OFCbgAMnAiYQg2OZ5xpW54CKk4kI3IKHgDQ"
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
+    const token = localStorage.getItem("@TOKEN")
 
     const [cities, setCities] = useState<ICities[]>([])
-    // const token = localStorage.getItem("")
+    console.log(cities)
 
     useEffect(() => {
         const getAllCitiesFromUser = async () => {
@@ -94,7 +94,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
     const Navigate = useNavigate()
 
     const logoutUser = () => {
-        // localStorage.removeItem("")
+        localStorage.removeItem("@TOKEN")
         Navigate("/")
     }
     const homePageUser = () => {
