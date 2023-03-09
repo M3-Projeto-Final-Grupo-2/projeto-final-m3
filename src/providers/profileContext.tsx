@@ -95,7 +95,7 @@ export const ProfileProvider = ({children}: IProviderProps) => {
 
     const logoutUser = () =>{
         // localStorage.removeItem("")
-        // Navigate("/")
+        Navigate("/")
     }
     const homePageUser = () =>{
         // Navigate("/home")
