@@ -5,5 +5,4 @@ background-color: white;
 position: fixed;
 z-index: 1;
 width: 80vw;
-margin-bottom: 400px;
-`
+` 
