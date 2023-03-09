@@ -51,7 +51,6 @@ export const ModalProfilePage = () => {
               onClick={() => {
                 if (cityFromClick) {
                   dellCity(cityFromClick?.id);
-                  // setModal(false);
                 }
               }}
             >
