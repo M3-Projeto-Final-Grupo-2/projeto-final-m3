@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { ILoginForm, LoginContext } from "../../providers/loginContext";
 import Input from "../Input";
 import Schema from "./schema";
@@ -8,6 +9,7 @@ import { FormContainer } from "./style";
 
 const FormLogin = () => {
   const { Login } = useContext(LoginContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -43,7 +45,9 @@ const FormLogin = () => {
 
       <p>Clicando no botão abaixo você pode se cadastrar rapidamente</p>
 
-      <button type="button">Cadastrar</button>
+      <button type="button" onClick={() => navigate("/register")}>
+        Cadastrar
+      </button>
     </FormContainer>
   );
 };
