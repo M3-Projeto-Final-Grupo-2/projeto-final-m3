@@ -62,7 +62,6 @@ export const ModalProfilePage = () => {
         </form>
       </StyledContainerModal>
         <StyledBackground className="background">
-          <p></p>
         </StyledBackground>
     </>
   );
