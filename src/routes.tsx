@@ -2,9 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { ProfilePage } from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { RegisterProvider } from "./providers/RegisterContext";
-import { ProfileProvider } from "./providers/profileContext";
+
 import HomePage from "./pages/HomePage";
+import { CitiesProvider } from "./providers/citiesContext";
+import { ProfileProvider } from "./providers/profileContext";
 
 const Router = () => (
   <Routes>
@@ -20,15 +21,22 @@ const Router = () => (
     <Route
       path="/profile"
       element={
+        <CitiesProvider>
 
-          <ProfilePage />
+          <ProfileProvider>
+            <ProfilePage />
+
+          </ProfileProvider>
+        </CitiesProvider>
 
       }
     />
     <Route  path="/home"
       element={
+          <CitiesProvider>
+            <HomePage />
 
-          <HomePage />
+          </CitiesProvider>
 
       }/>
   </Routes>

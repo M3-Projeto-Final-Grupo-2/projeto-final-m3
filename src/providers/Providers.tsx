@@ -13,11 +13,11 @@ function Providers({ children }: IProviderProps) {
     <LoginContextProvider>
 
     <RegisterProvider>
-    <ProfileProvider>
-    <CitiesProvider>
+  
+  
         {children}
-    </CitiesProvider>
-    </ProfileProvider>
+  
+
     </RegisterProvider>
 
     </LoginContextProvider>

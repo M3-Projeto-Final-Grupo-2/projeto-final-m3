@@ -79,11 +79,13 @@ export const CitiesProvider = ({children}: ICityProviderProps) => {
 }, [])
 
       const registerPost = async (data: INewPost) => {
+
         try {
          await api.post(`/cities`, data, {headers});        
         } catch (error) {
           console.log(error);
         } 
+
       }
 
 
