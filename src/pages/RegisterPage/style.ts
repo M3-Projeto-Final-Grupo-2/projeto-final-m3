@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const StyledRegisterPage = styled.div`
-    background-color: #1E1E1E;
+    background-color: #001318;
 
     main{
         padding: 1.5rem 0;
-        background-color: #1E1E1E;
+        background-color: #001318;
         width: 100%;
         margin: 0 auto;
     }
