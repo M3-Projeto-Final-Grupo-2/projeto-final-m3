@@ -44,11 +44,14 @@ export const CitiesProvider = ({children}: ICityProviderProps) => {
     const [cities, setCities] = useState<ICity[]>([])
     const [modalPost, setModalPost] = useState<boolean>(false)
 
-    // const token = localStorage.getItem("@TOKEN")
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzgyMTY1LCJleHAiOjE2NzgzODU3NjUsInN1YiI6IjIifQ.yHmZFSwtq8znr4_DZmLAS4RJmKu2uMZKifRCyJhnbcY"
+    const token = localStorage.getItem("@TOKEN")
+    const userId = localStorage.getItem("@USERID")
+  console.log(token);
+  
+    
     const headers = {
       Authorization: `Bearer ${token}`,
-      userID: 2,
+      userID: userId,
     };
     
     
