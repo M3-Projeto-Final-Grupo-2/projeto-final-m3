@@ -35,6 +35,7 @@ export const LoginContextProvider = ({ children }: IProviderProps) => {
     try {
       const response = await api.post("/login", data);
       localStorage.setItem("@TOKEN", response.data.accessToken);
+      localStorage.setItem("@USERID", response.data.user.id)
       toast.success("Logado com sucesso");
       setUser(response.data.user);
       navigate("/home");
