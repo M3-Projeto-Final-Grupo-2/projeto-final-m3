@@ -34,7 +34,7 @@ export const LoginContextProvider = ({ children }: IProviderProps) => {
   const Login = async (data: ILoginForm) => {
     try {
       const response = await api.post("/login", data);
-      localStorage.setItem("@TOKEN", JSON.stringify(response.data.accessToken));
+      localStorage.setItem("@TOKEN", response.data.accessToken);
       toast.success("Logado com sucesso");
       setUser(response.data.user);
       navigate("/home");
