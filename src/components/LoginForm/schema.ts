@@ -7,7 +7,7 @@ const Schema = yup
     password: yup
       .string()
       .required("Campo obrigatório")
-      .min(8, "Minímo de 8 caracteres"),
+      .min(6, "Minímo de 8 caracteres"),
   })
   .required();
 
