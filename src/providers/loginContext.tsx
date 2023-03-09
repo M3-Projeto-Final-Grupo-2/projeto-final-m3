@@ -37,7 +37,7 @@ export const LoginContextProvider = ({ children }: IProviderProps) => {
       localStorage.setItem("@TOKEN", JSON.stringify(response.data.accessToken));
       toast.success("Logado com sucesso");
       setUser(response.data.user);
-      navigate("/profile");
+      navigate("/home");
     } catch (errors) {
       toast.error("Ops, algo deu errado");
     }
