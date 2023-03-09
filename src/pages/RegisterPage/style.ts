@@ -54,18 +54,26 @@ const StyledRegisterPage = styled.div`
             align-items: center;
             width: 90%;
             max-width: 1100px;
+            padding: 4rem 0;
         }
         .page-description{
-            min-height: 705px;
+            min-height: 646px;
             margin: 0;
             border-radius: 5px 0 0 5px;
             border-right: 5px solid #EACCCC;
         }
         .page-description > h2{
-        display: block;
+            display: block;
+            font-size: 22px;
+            font-weight: 700;
+            width: 80%;
+        }
+        .page-description > h2 > span{
+            color: #00356b ;
         }
         aside{
             border-radius: 0 5px 5px 0;
+            height: 582px;
         }
     }
 

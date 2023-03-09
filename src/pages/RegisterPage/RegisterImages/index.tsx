@@ -13,7 +13,7 @@ const RegisterImages = () => {
             </div>
             <img className='image-3' src={image3Register} />
         </StyledRegisterImages>
-    )
-}
+    );
+};
 
 export default RegisterImages;
