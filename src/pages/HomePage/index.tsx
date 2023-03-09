@@ -1,11 +1,17 @@
+import { useContext } from "react";
 import CitiesList from "../../components/CitiesBox";
 import Header from "../../components/Header";
+import { ModalCreatePost } from "../../components/Modal/ModalCreatePost";
 import PostsList from "../../components/Posts";
+import { CitiesContext } from "../../providers/citiesContext";
 
 
 
 const HomePage = () => {
+    const {modalPost ,setModalPost} = useContext(CitiesContext)
 
+    
+    
     
     return(
         <main>
@@ -14,7 +20,7 @@ const HomePage = () => {
                 <div>
                     <div>
                 <h3>Posts</h3>
-                <button>Criar um post</button>
+                <button onClick={() => setModalPost(true)}>Criar um post</button>
                     </div>
                 <PostsList/>
                 </div>
@@ -26,6 +32,7 @@ const HomePage = () => {
 
                 </div>
             </section>
+            {modalPost ? <ModalCreatePost /> : null}
         </main>
         )
 }
