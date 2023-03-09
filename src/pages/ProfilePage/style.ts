@@ -5,8 +5,6 @@ export const StyledOver = styled.div`
   background-color: #001318;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const StyledHeader = styled.header`
@@ -93,11 +91,20 @@ export const StyledHeader = styled.header`
       font-size: 1.3rem;
     }
   }
+
+  /* @media (min-width: 769px) {
+
+  } */
 `;
 
 export const StyledFlexDirection = styled.div`
   display: flex;
   flex-direction: column-reverse;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    margin-top: 40px;
+  }
 `;
 
 export const StyledMain = styled.main`
@@ -128,6 +135,9 @@ export const StyledMain = styled.main`
       height: 50vh;
       margin-bottom: 20px;
     }
+  }
+  @media (min-width: 769px) {
+    width: 62vw;
   }
 `;
 
@@ -168,5 +178,8 @@ export const StyledAside = styled.aside`
         color: #00356b;
       }
     }
+  }
+  @media (min-width: 769px) {
+    width: 36vw;
   }
 `;

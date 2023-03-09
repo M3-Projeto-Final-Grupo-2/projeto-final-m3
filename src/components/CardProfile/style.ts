@@ -29,9 +29,14 @@ export const StyledCardProfile = styled.li`
       margin-top: 25px;
       margin-right: 15px;
 
+      
       p {
         font-size: 0.7rem;
       }
+    }
+    span{
+      align-self: flex-end;
+      margin-right: 15px;
     }
   }
   .button__editCard {
@@ -51,6 +56,10 @@ export const StyledCardProfile = styled.li`
       border: 2px solid #00356b;
     }
   }
+  @media (min-width: 769px) {
+    img{
+      width: 150px;
+      height: 150px;
+    }
+  }
 `;
-
-

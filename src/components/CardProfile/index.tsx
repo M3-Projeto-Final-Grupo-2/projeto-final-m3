@@ -13,7 +13,7 @@ export const CardProfile = () => {
                 <img src={city?.image} alt={city?.name} />
                 <div>
                   <h2>{city?.name} - <p>{city?.state}</p></h2>
-                  <span>{city?.data}</span>
+                  <span>{city?.data} 23/02/2001</span>
                 <button className="button__editCard"
                   onClick={() => {
                     setModal(true);

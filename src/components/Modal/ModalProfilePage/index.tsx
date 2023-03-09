@@ -3,48 +3,66 @@ import { ProfileContext } from "../../../providers/profileContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledContainerModal } from "./style";
+import { StyledBackground, StyledContainerModal } from "./style";
 
 interface IData {
-    description: string
-    image: string
+  description: string;
+  image: string;
 }
 
 const schema = yup.object({
-    description: yup.string().required("Nova descrição obrigatória")
-})
+  description: yup.string().required("Nova descrição obrigatória"),
+});
 
 export const ModalProfilePage = () => {
   const { setModal, cityFromClick, dellCity } = useContext(ProfileContext);
   const { register, handleSubmit } = useForm<IData>({
-    resolver: yupResolver(schema) , mode: "onSubmit"
+    resolver: yupResolver(schema),
+    mode: "onSubmit",
   });
 
-  const getFromData = (data : IData | null) => {
+  const getFromData = (data: IData | null) => {
     console.log(data);
   };
   return (
-    <StyledContainerModal>
-        <h2>{cityFromClick?.name} - {cityFromClick?.state}</h2>
-      <span
-        onClick={() => {
-          setModal(false);
-        }}
-      >
-        X
-      </span>
-      <form onSubmit={handleSubmit(getFromData)}>
-        <label htmlFor="description">Descrição da viagem</label>
-        <input type="text" id="description" {...register("description")} />
-        {/* <label htmlFor="image">Imagem da viagem</label>
+    <>
+      <StyledContainerModal>
+        <div>
+          <h2>
+            {cityFromClick?.name} - <p>{cityFromClick?.state}</p>
+          </h2>
+          <button
+            onClick={() => {
+              setModal(false);
+            }}
+          >
+            X
+          </button>
+        </div>
+        <h2>Edite sua viagem aqui:</h2>
+        <form onSubmit={handleSubmit(getFromData)}>
+          <label htmlFor="description">Descrição da viagem</label>
+          <input type="text" id="description" {...register("description")} />
+          {/* <label htmlFor="image">Imagem da viagem</label>
         <input type="text" id="image" {...register("image")} /> */}
-        <button type="submit">Editar</button>
+          <div className="container__buttons">
+            <button type="submit">Editar</button>
+            <span
+              onClick={() => {
+                if (cityFromClick) {
+                  dellCity(cityFromClick?.id);
+                  // setModal(false);
+                }
+              }}
+            >
+              Excluir
+            </span>
+          </div>
         </form>
-        <button onClick={() =>{
-            if(cityFromClick){
-                dellCity(cityFromClick?.id)
-            }
-        }}>Excluir</button>
-    </StyledContainerModal>
+      </StyledContainerModal>
+        <StyledBackground className="background">
+          <p></p>
+        </StyledBackground>
+    </>
   );
 };
