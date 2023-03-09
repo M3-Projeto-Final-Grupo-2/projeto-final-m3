@@ -16,7 +16,6 @@ export const ProfilePage = () => {
   return (
     <>
       <StyledOver>
-      {modal ? <ModalProfilePage /> : null}
         <StyledHeader>
           <div className="conatiner__buttons">
             <span
@@ -61,6 +60,7 @@ export const ProfilePage = () => {
             </div>
           </StyledAside>
         </StyledFlexDirection>
+      {modal ? <ModalProfilePage /> : null}
       </StyledOver>
     </>
   );
