@@ -10,9 +10,11 @@ import {
   StyledMain,
   StyledOver,
 } from "./style";
+import { LoginContext } from "../../providers/loginContext";
 
 export const ProfilePage = () => {
   const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
+  const { user } = useContext(LoginContext)
   return (
     <>
       <StyledOver>
@@ -35,8 +37,8 @@ export const ProfilePage = () => {
             </span>
           </div>
           <div className="user__info">
-            <h2>U</h2>
-            <h1>User name</h1>
+            <h2>{user?.name[0]}</h2>
+            <h1>{user?.name}</h1>
           </div>
         </StyledHeader>
         <StyledFlexDirection>
