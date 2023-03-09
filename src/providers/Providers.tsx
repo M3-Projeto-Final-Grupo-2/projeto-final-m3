@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { CitiesProvider } from './citiesContext';
+import { LoginContextProvider } from './loginContext';
 
 import { ProfileProvider } from './profileContext';
 import { RegisterProvider } from './RegisterContext';
@@ -9,15 +10,17 @@ interface IProviderProps {
 }
 function Providers({ children }: IProviderProps) {
   return (
-    <RegisterProvider>
+    <LoginContextProvider>
 
+    <RegisterProvider>
     <ProfileProvider>
     <CitiesProvider>
         {children}
     </CitiesProvider>
-
     </ProfileProvider>
     </RegisterProvider>
+
+    </LoginContextProvider>
 
     )
       
