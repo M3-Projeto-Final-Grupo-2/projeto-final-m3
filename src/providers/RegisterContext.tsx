@@ -2,6 +2,7 @@ import { createContext, ReactNode } from "react";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -26,12 +27,16 @@ export interface IRegisterContext {
 export const RegisterContext = createContext({} as IRegisterContext);
 
 export const RegisterProvider = ({ children }: IProviderProps) => {
+    const navigate = useNavigate();
 
     const registerUser = async (data: IDataRegisterUser) => {
         console.log(data)
         try {
             await api.post('/register', data).then((response: AxiosResponse<IApiResponse>) => {
-                toast.success(`${response.data.user.name}, seu cadastro está efetuado! Redirecionando à página de Login...`)
+                toast.success(`${response.data.user.name}, seu cadastro está efetuado! Redirecionando à página de Login...`);
+                setTimeout(() => {
+                    navigate('/');
+                }, 2000);
             });
         } catch (error) {
             toast.warning('E-mail já cadastrado. Por favor, tente novamente.');

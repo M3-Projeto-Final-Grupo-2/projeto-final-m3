@@ -20,7 +20,7 @@ const RegisterPage = () => {
                 </aside>
             </main>
         </StyledRegisterPage>
-    )
-}
+    );
+};
 
 export default RegisterPage;

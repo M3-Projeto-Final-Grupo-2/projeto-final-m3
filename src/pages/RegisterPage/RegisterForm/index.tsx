@@ -47,7 +47,6 @@ const RegisterForm = () => {
                 id='passConfirm' register={register('passConfirm')} type='password' error={errors.passConfirm?.message} />
             <button type='submit'>Cadastrar</button>
             <Link to="/">Voltar para o Login</Link>
-            <ToastContainer autoClose={1500} />
         </StyledRegisterForm>
     );
 };
