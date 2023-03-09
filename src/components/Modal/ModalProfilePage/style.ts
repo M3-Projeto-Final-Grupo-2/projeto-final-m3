@@ -50,6 +50,23 @@ export const StyledContainerModal = styled.div`
       justify-content: center;
     }
   }
+  .h2__description{
+    color: #00356b;
+    font-size: 0.8rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .p__description{
+    width: 95%;
+    margin: 0 auto;
+    line-height: 1.50;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+  }
   h2 {
     width: 95%;
     margin: 0 auto;
