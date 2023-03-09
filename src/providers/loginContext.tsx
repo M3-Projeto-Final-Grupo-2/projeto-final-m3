@@ -7,12 +7,12 @@ interface IProviderProps {
   children: React.ReactNode;
 }
 
-interface ILoginForm {
+export interface ILoginForm {
   email: string;
   password: string;
 }
 
-interface IUser {
+export interface IUser {
   email: string;
   name: string;
   id: number;
