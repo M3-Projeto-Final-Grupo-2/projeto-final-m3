@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { RegisterProvider } from "./providers/RegisterContext";
 import { ProfileProvider } from "./providers/profileContext";
+import HomePage from "./pages/HomePage";
 
 const Router = () => (
   <Routes>
@@ -11,19 +12,25 @@ const Router = () => (
     <Route
       path="/register"
       element={
-        <RegisterProvider>
+
           <RegisterPage />
-        </RegisterProvider>
+     
       }
     />
     <Route
       path="/profile"
       element={
-        <ProfileProvider>
+
           <ProfilePage />
-        </ProfileProvider>
+
       }
     />
+    <Route  path="/home"
+      element={
+
+          <HomePage />
+
+      }/>
   </Routes>
 );
 

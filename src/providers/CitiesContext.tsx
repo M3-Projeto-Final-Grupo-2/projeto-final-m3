@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useContext } from 'react'
 import { createContext, useEffect, useState } from "react";
 import { api } from '../services/api';
+import { LoginContext } from './loginContext';
 
 interface ICityProviderProps {
   children: ReactNode;
@@ -26,12 +27,17 @@ cities: ICity[];
 export const CitiesContext = createContext({} as ICitiesContext);
 
 export const CitiesProvider = ({children}: ICityProviderProps) => {
+  const {user} = useContext(LoginContext)
     const [posts, setPosts] = useState<IPost[]>([])
     const [cities, setCities] = useState<ICity[]>([])
-    const token = localStorage.getItem("@TOKEN")
+    // const token = localStorage.getItem("@TOKEN")
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzgyMTY1LCJleHAiOjE2NzgzODU3NjUsInN1YiI6IjIifQ.yHmZFSwtq8znr4_DZmLAS4RJmKu2uMZKifRCyJhnbcY"
     const headers = {
       Authorization: `Bearer ${token}`,
+      // userID: 2,
     };
+
+
 
     useEffect(() => {
         async function getCities() {
@@ -47,8 +53,9 @@ export const CitiesProvider = ({children}: ICityProviderProps) => {
 
     useEffect(() => {
     async function getPosts() {
+     
         try {
-          const response = await api.get(`/cities/?_embed=users`, {headers});
+          const response = await api.get(`/cities/?_embed=users`, {headers});        
           setPosts(response.data);
         } catch (error) {
           console.log(error);
