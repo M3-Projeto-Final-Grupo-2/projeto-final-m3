@@ -9,6 +9,7 @@ import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { LoginContext } from "./loginContext";
+import { CitiesContext } from "./CitiesContext";
 
 export const ProfileContext = createContext({} as IProfileContext);
 
@@ -41,6 +42,7 @@ interface IProfileContext {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   cityFromClick: ICities | any;
   setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>;
+  openModalAddPost: () => any;
 }
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
@@ -112,26 +114,34 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
 
   const [modal, setModal] = useState(false);
 
+
+  
   const { setUser, user } = useContext(LoginContext);
-
+  
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const response = await api.get(`/users/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setUser(response.data);
-        Navigate("/home");
-      } catch (error) {
-        localStorage.removeItem("@TOKEN");
-        localStorage.removeItem("@USERID");
-      }
-    };
-    getUser();
-  }, []);
+      const getUser = async () => {
+          try {
+              const response = await api.get(`/users/${userId}`, {
+                  headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                });
+                setUser(response.data);
+                Navigate("/home");
+            } catch (error) {
+                localStorage.removeItem("@TOKEN");
+                localStorage.removeItem("@USERID");
+            }
+        };
+        getUser();
+    }, []);
 
+
+    const {setModalPost} = useContext(CitiesContext)
+
+    const openModalAddPost = () =>{
+        setModalPost(true)
+    }
   return (
     <ProfileContext.Provider
       value={{
@@ -144,6 +154,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
         setModal,
         cityFromClick,
         setCityFromClick,
+        openModalAddPost
       }}
     >
       {children}
