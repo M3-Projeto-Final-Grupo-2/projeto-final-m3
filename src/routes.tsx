@@ -6,39 +6,29 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import { CitiesProvider } from "./providers/citiesContext";
 import { ProfileProvider } from "./providers/profileContext";
+import { ProtectedRoutes } from "./providers/ProtectedRoutes";
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<LoginPage />} />
-    <Route
-      path="/register"
-      element={
+    <Route path="/register" element={<RegisterPage />} />
 
-          <RegisterPage />
-     
-      }
-    />
-    <Route
-      path="/profile"
-      element={
-        <CitiesProvider>
-
-          <ProfileProvider>
-            <ProfilePage />
-
-          </ProfileProvider>
-        </CitiesProvider>
-
-      }
-    />
-    <Route  path="/home"
-      element={
+    <Route element={<CitiesProvider><ProfileProvider><ProtectedRoutes/></ProfileProvider></CitiesProvider>}>
+      <Route
+        path="/profile"
+        element={
+              <ProfilePage />
+        }
+      />
+      <Route
+        path="/home"
+        element={
           <CitiesProvider>
             <HomePage />
-
           </CitiesProvider>
-
-      }/>
+        }
+      />
+    </Route>
   </Routes>
 );
 

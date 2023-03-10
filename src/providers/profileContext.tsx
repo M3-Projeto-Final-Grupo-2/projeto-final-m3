@@ -105,11 +105,12 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   const [modal, setModal] = useState(false);
 
 
-  const { setUser } = useContext(LoginContext)
+  const { setUser, user } = useContext(LoginContext)
 
 
   useEffect(() => {
     const getUser = async () => {
+        console.log("heloo")
         try {
             const response = await api.get(`/users/${userId}`, {
               headers: {
@@ -117,9 +118,10 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
               },
             });
             setUser(response.data)
-            
+            Navigate("/home")
         } catch (error) {
-            
+            localStorage.removeItem("@TOKEN")            
+            localStorage.removeItem("@USERID")            
         }
     };
     getUser()
