@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Poppins', sans-serif;
+	background-color: #001318;
 }
 ol, ul {
 	list-style: none;
@@ -49,5 +50,9 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+button {
+	cursor: pointer;
 }
 `;

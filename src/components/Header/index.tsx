@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import StyledHeader from "./style";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -9,14 +10,19 @@ const Header = () => {
     }
 
  return(
-    <header>
-        <div>
+    <StyledHeader>
+
+        <div className="headerContainer">
         <h1>Destinos<span>Kenzie</span></h1>
-        <button onClick={() => navigate("/profile")}>Perfil</button>
-        <button onClick={() => logout()}>Sair</button>
+        <div className="buttonsContainer">
+        <button className="whiteBtn" onClick={() => navigate("/profile")}>Perfil</button>
+        <button className="blueBtn" onClick={() => logout()}>Sair</button>
 
         </div>
-    </header>
+
+        </div>
+    </StyledHeader>
+   
  )
 }
 
