@@ -1,13 +1,11 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { RegisterContext } from "../../../providers/RegisterContext";
 import StyledRegisterForm from "./style";
 import Input from "../../../components/Input";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 interface IRegisterForm {
   name: string;

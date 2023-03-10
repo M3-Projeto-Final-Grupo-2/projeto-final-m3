@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledRegisterForm = styled.form`
     width: 80%;
+    max-width: 300px;
     margin: 0 auto;
 
     fieldset{
@@ -11,19 +12,19 @@ const StyledRegisterForm = styled.form`
         position: relative;
 
         label{
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
             width: fit-content;
         }
 
         input{
             border-radius: 5px;
-            height: 40px;
+            height: 35px;
             border: 1px solid #E8E8E8;
             padding-left: 1rem;
             margin-bottom: 1.5rem;
-            font-size: 16px;
+            font-size: 14px;
         }
         input:focus{
             outline: 0;
@@ -31,9 +32,11 @@ const StyledRegisterForm = styled.form`
 
         p{
             position: absolute;
-            top: 80px;
-            font-size: 14px;
+            top: 60px;
+            font-size: 12px;
             margin-bottom: 1rem;
+            text-align: end;
+            width: 100%;
         }
     }
 
@@ -46,7 +49,7 @@ const StyledRegisterForm = styled.form`
         text-align: center;
         border-radius: 5px;
         border: none;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
         margin: 1rem 0;
         cursor: pointer;
@@ -62,7 +65,7 @@ const StyledRegisterForm = styled.form`
         text-align: center;
         border-radius: 5px;
         border: none;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
         margin: 1rem 0;
         text-decoration: none;
