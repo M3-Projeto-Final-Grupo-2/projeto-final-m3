@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
@@ -33,14 +39,13 @@ interface IProfileContext {
   homePageUser: () => void;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  cityFromClick: ICities | null;
+  cityFromClick: ICities | any;
   setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>;
 }
 
-
 export const ProfileProvider = ({ children }: IProviderProps) => {
-    const token = localStorage.getItem("@TOKEN");
-    const userId = localStorage.getItem("@USERID");
+  const token = localStorage.getItem("@TOKEN");
+  const userId = localStorage.getItem("@USERID");
 
   const [cities, setCities] = useState<ICities[]>([]);
 
@@ -58,9 +63,9 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
       }
     };
     getAllCitiesFromUser();
-  }, []);
+  }, [cities]);
 
-  const [cityFromClick, setCityFromClick] = useState<ICities | null>(null);
+  const [cityFromClick, setCityFromClick] = useState<ICities | any>(null);
 
   const editCityFromUser = async (data: IData) => {
     try {
@@ -69,7 +74,10 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setCities(response.data);
+      const index = cities.indexOf(cityFromClick);
+      const editCity = cities.splice(index, 1);
+      setCities([...cities, editCity[0]]);
+      setModal(false);
     } catch (error) {
       toast.error("Error, por favor tente novamente");
     }
@@ -97,34 +105,31 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
     localStorage.removeItem("@USERID");
     Navigate("/");
   };
-  
+
   const homePageUser = () => {
-    // Navigate("/home")
+    Navigate("/home");
   };
 
   const [modal, setModal] = useState(false);
 
-
-  const { setUser, user } = useContext(LoginContext)
-
+  const { setUser, user } = useContext(LoginContext);
 
   useEffect(() => {
     const getUser = async () => {
-        console.log("heloo")
-        try {
-            const response = await api.get(`/users/${userId}`, {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            });
-            setUser(response.data)
-            Navigate("/home")
-        } catch (error) {
-            localStorage.removeItem("@TOKEN")            
-            localStorage.removeItem("@USERID")            
-        }
+      try {
+        const response = await api.get(`/users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(response.data);
+        Navigate("/home");
+      } catch (error) {
+        localStorage.removeItem("@TOKEN");
+        localStorage.removeItem("@USERID");
+      }
     };
-    getUser()
+    getUser();
   }, []);
 
   return (
