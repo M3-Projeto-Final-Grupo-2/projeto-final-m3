@@ -11,12 +11,19 @@ export interface INewPost {
   userId: number;
   name: string;
   state: string;
-description: string;
-image: string;
+  description: string;
+  image: string;
+  userName: string;
 }
 
 export interface IPost {
     id: number;
+    userId: number;
+    name: string;
+    state: string;
+    description: string;
+    image: string;
+    userName: string;
 }
 
 export interface ICity {
@@ -84,7 +91,12 @@ export const CitiesProvider = ({children}: ICityProviderProps) => {
       const registerPost = async (data: INewPost) => {
 
         try {
-         await api.post(`/cities`, data, {headers});        
+         const response = await api.post(`/cities`, data, {headers}); 
+         console.log(response);
+           
+         setModalPost(false);     
+         setPosts([response.data,...posts])
+         
         } catch (error) {
           console.log(error);
         } 
