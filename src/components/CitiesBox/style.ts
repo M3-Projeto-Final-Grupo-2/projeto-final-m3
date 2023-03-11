@@ -1,64 +1,65 @@
 import styled from "styled-components";
 
 const CitiesSection = styled.section`
-   width: 82.2%;
-background-color: #D9D9D9;
-border-radius: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-top: 10px;
-height: 169px;
+  width: 82.2%;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  height: 180px;
 
-.citiesBoxContainer{
+  .citiesBoxContainer {
     display: flex;
     flex-direction: column;
-    height: 142px;
-    width: 89.9%;
+    height: 100%;
+    width: 90%;
     gap: 15px;
     justify-content: space-between;
-}
+  }
 
-.imgContainer{
+  .imgContainer {
     width: 66px;
     height: 66px;
     border-radius: 4px;
-    border: 2px solid #00356B;
-}
+    border: 2px solid #00356b;
+  }
 
-img{
- width: 100%;
- height: 100%;
-}
+  img {
+    width: 100%;
+    height: 100%;
+  }
 
-ul{
+  ul {
     width: 100%;
     display: flex;
     overflow-x: auto;
     gap: 20px;
     overflow-y: hidden;
-}
+  }
 
-span{
+  span {
     display: none;
-}
+  }
 
-h3{
+  h3 {
     font-weight: 700;
     font-size: 20px;
-}
+  }
 
-li{
+  li {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 90px;
     text-align: center;
     gap: 5px;
-}
+    padding-bottom: 10px;
+  }
 
-h4{
+  h4 {
     font-weight: 700;
-}
-`
+  }
+`;
 export default CitiesSection;
