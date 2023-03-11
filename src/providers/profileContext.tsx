@@ -137,11 +137,12 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
     }, []);
 
 
-    const {setModalPost} = useContext(CitiesContext)
+    const {setModalPost, teste} = useContext(CitiesContext)
 
     const openModalAddPost = () =>{
-        setModalPost(true)
+        // setModalPost(true)
     }
+
   return (
     <ProfileContext.Provider
       value={{

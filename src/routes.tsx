@@ -13,13 +13,16 @@ const Router = () => (
     <Route path="/" element={<LoginPage />} />
     <Route path="/register" element={<RegisterPage />} />
 
-    <Route element={<CitiesProvider><ProfileProvider><ProtectedRoutes/></ProfileProvider></CitiesProvider>}>
-      <Route
-        path="/profile"
-        element={
-              <ProfilePage />
-        }
-      />
+    <Route
+      element={
+        <CitiesProvider>
+          <ProfileProvider>
+            <ProtectedRoutes />
+          </ProfileProvider>
+        </CitiesProvider>
+      }
+    >
+      <Route path="/profile" element={<ProfilePage />} />
       <Route
         path="/home"
         element={
