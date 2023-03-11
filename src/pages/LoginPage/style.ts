@@ -12,7 +12,7 @@ export const Main = styled.div`
     color: black;
   }
 `;
-
+ 
 export const Descript = styled.div`
   display: flex;
   flex-direction: column;

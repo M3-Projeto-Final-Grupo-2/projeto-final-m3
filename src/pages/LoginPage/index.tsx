@@ -21,7 +21,7 @@ const LoginPage = () => (
         </div>
         {<img src={CristoRedentor} alt="Cristo Redentor" />}
       </Images>
-    </Descript>
+    </Descript> 
   </Main>
 );
 
