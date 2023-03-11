@@ -20,15 +20,21 @@ const HomePage = () => {
         <Header/>
           
         <StyledHome>
+      
+        <div className="homeContainer">
+
                 <PostsList/>
               
            
                 <CitiesList/>
+      
+        </div>
 
             
             {modalPost ? <ModalCreatePost /> : null}
 
         </StyledHome>
+
         </main>
         
         )

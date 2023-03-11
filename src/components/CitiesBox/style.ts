@@ -60,6 +60,52 @@ const CitiesSection = styled.section`
 
   h4 {
     font-weight: 700;
-  }
-`;
+
+}
+
+@media(min-width: 1099px){
+    max-width: 413px;
+    height: 626px;
+   
+
+    h3{
+        font-size: 28px;
+    }
+
+    .citiesBoxContainer{
+        padding-top: 61px;
+        gap: 61px;
+    }
+
+    ul{
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: 465px;
+    }
+
+    li{
+        background-color: white;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    span{
+        display: block;
+        
+    }
+
+    .cityText{
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        align-items: center;
+    }
+}
+`
 export default CitiesSection;
+

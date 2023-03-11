@@ -86,5 +86,52 @@ p{
    font-size: 14px;
 }
 
+@media(min-width: 1099px){
+    max-width: 739px;
+    height: 626px;
+    
+    p{
+        display: block;
+        line-height: 24px;
+    }
+
+    ul{
+    margin-top: 48px;
+    overflow-y: auto;
+    max-height: 520px;
+    }
+
+    li{
+        width: 628px;
+        min-height: 302px;
+    }
+
+    .userLetter{
+        min-width: 66px;
+        min-height: 66px;
+        font-size: 26px;
+        border: 2px solid #00356B;
+    }
+
+    .cityTitle{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .postContainer{
+        width: 91.4%;
+        display: flex;
+        flex-direction: column;
+        height: 251px;
+        gap: 32px;
+    }
+
+    h4{
+        font-size: 23px;
+    }
+
+}
+
 `
 export default PostsSection;
