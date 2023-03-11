@@ -38,6 +38,13 @@ const StyledRegisterForm = styled.form`
             text-align: end;
             width: 100%;
         }
+
+        i{
+            position: absolute;
+            top: 32px;
+            right: 15px;
+            color: #5d5454;
+        }
     }
 
     button{

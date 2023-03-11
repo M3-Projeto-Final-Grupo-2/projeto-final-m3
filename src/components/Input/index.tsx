@@ -8,14 +8,16 @@ interface IInput {
   placeholder: string;
   register: UseFormRegisterReturn<string>;
   error?: string;
+  children?: React.ReactNode;
 }
 
-const Input = ({ label, type, id, placeholder, register, error }: IInput) => {
+const Input = ({ label, type, id, placeholder, register, error, children }: IInput) => {
   return (
     <fieldset>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} placeholder={placeholder} {...register} />
       {error && <p>{error}</p>}
+      {children}
     </fieldset>
   );
 };
