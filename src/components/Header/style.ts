@@ -43,6 +43,19 @@ button{
     justify-content: space-between;
     align-items: center;
 }
+
+.buttonsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+@media(min-width: 1099px){
+    .buttonsContainer{
+    flex-direction: row;
+     gap: 34px;
+}
+}
 `
 
 export default StyledHeader;

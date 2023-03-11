@@ -23,7 +23,7 @@ const PostsList = () => {
                         <div className="userLetter">U</div>
                         <div className="cityTitle">
 
-                        <h4>{post.name}</h4>
+                        <h4>{post.userName}</h4>
                         <h4>{post.name}-{post.state}</h4> 
                         </div>
                         </div>
