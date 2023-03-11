@@ -1,13 +1,11 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { RegisterContext } from "../../../providers/RegisterContext";
 import StyledRegisterForm from "./style";
 import Input from "../../../components/Input";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 interface IRegisterForm {
   name: string;
@@ -37,7 +35,8 @@ const formSchema = yup.object().shape({
 });
 
 const RegisterForm = () => {
-  const { registerUser } = useContext(RegisterContext);
+  const { registerUser, showPass, showConfirm,
+    passChangeVisibility, ConfirmChangeVisibility } = useContext(RegisterContext);
   const {
     register,
     handleSubmit,
@@ -67,17 +66,19 @@ const RegisterForm = () => {
         placeholder="Digite sua senha..."
         id="password"
         register={register("password")}
-        type="password"
+        type={showPass}
         error={errors.password?.message}
-      />
+      ><i className="fa-sharp fa-solid fa-eye"
+        onClick={passChangeVisibility}></i></Input>
       <Input
         label="Confirmar senha"
         placeholder="Confirme sua senha..."
         id="passConfirm"
         register={register("passConfirm")}
-        type="password"
+        type={showConfirm}
         error={errors.passConfirm?.message}
-      />
+      ><i className="fa-sharp fa-solid fa-eye"
+        onClick={ConfirmChangeVisibility}></i></Input>
       <button type="submit">Cadastrar</button>
       <Link to="/">Voltar para o Login</Link>
     </StyledRegisterForm>

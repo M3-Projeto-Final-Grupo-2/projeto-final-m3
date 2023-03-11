@@ -3,16 +3,16 @@ import styled from "styled-components";
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  -webkit-box-align: center;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 12px;
-
-  width: 520px;
-  max-width: 100%;
-  height: 650px;
-
-  background-color: #e8e8e8;
+  width: 100%;
+  max-width: 351px;
+  margin: 0px auto;
+  background-color: rgb(232, 232, 232);
   border-radius: 8px 0px 0px 8px;
+  padding: 40px 0px;
 
   h2 {
     font-family: "Poppins";
@@ -23,19 +23,70 @@ export const FormContainer = styled.form`
   }
 
   fieldset {
+    width: 278px;
+    height: 94px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-  }
+    gap: 10px;
 
-  input {
-    width: 438px;
-    height: 50px;
-  }
+    label {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      width: fit-content;
+    }
 
+    input {
+      border-radius: 5px;
+      height: 35px;
+      border: 1px solid #e8e8e8;
+      padding-left: 1rem;
+      font-size: 14px;
+    }
+    input:focus {
+      outline: 0;
+    }
+
+    p {
+      font-size: 12px;
+      margin-bottom: 1rem;
+      text-align: end;
+      width: 100%;
+    }
+  }
   button {
-    width: 438px;
-    height: 50px;
+    width: 278px;
+    height: 40px;
+
+    background-color: rgb(0, 53, 107);
+    color: rgb(255, 255, 255);
+
+    border-radius: 5px;
+    border: none;
+
+    font-size: 16px;
+    font-weight: 700;
+
     cursor: pointer;
+  }
+
+  span {
+    width: 339px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: center;
+  }
+
+  p {
+    width: 339px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: center;
   }
 `;

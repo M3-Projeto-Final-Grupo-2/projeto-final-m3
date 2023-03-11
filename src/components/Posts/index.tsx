@@ -8,7 +8,7 @@ const PostsList = () => {
     const {posts, setModalPost} = useContext(CitiesContext) 
     console.log(posts.reverse());
     return(
-      <PostsSection>
+      <PostsSection> 
             <div className="postsBoxContainer">
                     <div className="postsHeader">
                 <h3>Posts</h3>

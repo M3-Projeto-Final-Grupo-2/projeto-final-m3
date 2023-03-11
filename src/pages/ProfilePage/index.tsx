@@ -13,8 +13,9 @@ import {
 import { LoginContext } from "../../providers/loginContext";
 
 export const ProfilePage = () => {
-  const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
-  const { user } = useContext(LoginContext)
+  const { logoutUser, homePageUser, modal, openModalAddPost } =
+    useContext(ProfileContext);
+  const { user } = useContext(LoginContext);
   return (
     <>
       <StyledOver>
@@ -58,11 +59,14 @@ export const ProfilePage = () => {
                 outros usuários possam se basear nelas !
               </p>
               <p>Para fazer isso é simples basta clicar no botão a baixo.</p>
-              <button>Adicionar viagem</button>
+              <button onClick={() =>{
+                openModalAddPost()
+                }
+                }>Adicionar viagem</button>
             </div>
           </StyledAside>
         </StyledFlexDirection>
-      {modal ? <ModalProfilePage /> : null}
+        {modal ? <ModalProfilePage /> : null}
       </StyledOver>
     </>
   );

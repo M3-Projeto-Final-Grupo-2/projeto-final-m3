@@ -7,7 +7,7 @@ import { StyledBackground, StyledContainerModal } from "./style";
 
 interface IData {
   description: string;
-  image: string;
+  image?: string;
 }
 
 const schema = yup.object({
@@ -15,14 +15,14 @@ const schema = yup.object({
 });
 
 export const ModalProfilePage = () => {
-  const { setModal, cityFromClick, dellCity } = useContext(ProfileContext);
+  const { setModal, cityFromClick, dellCity, editCityFromUser } = useContext(ProfileContext);
   const { register, handleSubmit } = useForm<IData>({
     resolver: yupResolver(schema),
     mode: "onSubmit",
   });
 
-  const getFromData = (data: IData | null) => {
-    console.log(data);
+  const getFromData = (data: IData | any) => {
+    editCityFromUser(data);
   };
   return (
     <>
