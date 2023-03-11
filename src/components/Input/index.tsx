@@ -11,7 +11,15 @@ interface IInput {
   children?: React.ReactNode;
 }
 
-const Input = ({ label, type, id, placeholder, register, error, children }: IInput) => {
+const Input = ({
+  label,
+  type,
+  id,
+  placeholder,
+  register,
+  error,
+  children,
+}: IInput) => {
   return (
     <fieldset>
       <label htmlFor={id}>{label}</label>
