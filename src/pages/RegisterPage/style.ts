@@ -63,7 +63,7 @@ const StyledRegisterPage = styled.div`
             min-height: 546px;
             margin: 0;
             border-radius: 5px 0 0 5px;
-            border-right: 5px solid #EACCCC;
+            border-right: 3px solid #EACCCC;
             margin: 0;
         }
         .page-description > h2{
