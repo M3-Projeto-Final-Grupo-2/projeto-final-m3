@@ -36,7 +36,9 @@ const formSchema = yup.object().shape({
 
 const RegisterForm = () => {
   const { registerUser, showPass, showConfirm,
-    passChangeVisibility, ConfirmChangeVisibility } = useContext(RegisterContext);
+    passChangeVisibility, ConfirmChangeVisibility,
+    iconPassword, iconConfirmPass } = useContext(RegisterContext);
+
   const {
     register,
     handleSubmit,
@@ -52,7 +54,7 @@ const RegisterForm = () => {
         register={register("name")}
         type="text"
         error={errors.name?.message}
-      />
+      ><i className="fa-solid fa-user"></i></Input>
       <Input
         label="Email"
         placeholder="Digite seu e-mail..."
@@ -60,7 +62,7 @@ const RegisterForm = () => {
         register={register("email")}
         type="text"
         error={errors.email?.message}
-      />
+      ><i className="fa-solid fa-envelope"></i></Input>
       <Input
         label="Senha"
         placeholder="Digite sua senha..."
@@ -68,7 +70,7 @@ const RegisterForm = () => {
         register={register("password")}
         type={showPass}
         error={errors.password?.message}
-      ><i className="fa-sharp fa-solid fa-eye"
+      ><i className={iconPassword() + " onClick"}
         onClick={passChangeVisibility}></i></Input>
       <Input
         label="Confirmar senha"
@@ -77,7 +79,7 @@ const RegisterForm = () => {
         register={register("passConfirm")}
         type={showConfirm}
         error={errors.passConfirm?.message}
-      ><i className="fa-sharp fa-solid fa-eye"
+      ><i className={iconConfirmPass() + " onClick"}
         onClick={ConfirmChangeVisibility}></i></Input>
       <button type="submit">Cadastrar</button>
       <Link to="/">Voltar para o Login</Link>

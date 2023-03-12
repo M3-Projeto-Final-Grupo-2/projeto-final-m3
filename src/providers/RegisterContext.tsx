@@ -32,6 +32,8 @@ export interface IRegisterContext {
     showConfirm: "password" | "text";
     passChangeVisibility: () => void;
     ConfirmChangeVisibility: () => void;
+    iconPassword: () => "fa-sharp fa-solid fa-eye" | "fa-solid fa-eye-slash";
+    iconConfirmPass: () => "fa-sharp fa-solid fa-eye" | "fa-solid fa-eye-slash";
 };
 
 export const RegisterContext = createContext({} as IRegisterContext);
@@ -46,12 +48,29 @@ export const RegisterProvider = ({ children }: IProviderProps) => {
 
     const ConfirmChangeVisibility = () => {
         showConfirm === 'password' ? setShowConfirm('text') : setShowConfirm('password');
+    };
+
+    const iconPassword = () => {
+        let icon: '' | 'fa-sharp fa-solid fa-eye' | 'fa-solid fa-eye-slash' = '';
+
+        showPass === 'password' ? icon = 'fa-sharp fa-solid fa-eye' :
+            icon = 'fa-solid fa-eye-slash';
+
+        return icon;
+    };
+
+    const iconConfirmPass = () => {
+        let icon: '' | 'fa-sharp fa-solid fa-eye' | 'fa-solid fa-eye-slash' = '';
+
+        showConfirm === 'password' ? icon = 'fa-sharp fa-solid fa-eye' :
+            icon = 'fa-solid fa-eye-slash';
+
+        return icon;
     }
 
     const navigate = useNavigate();
 
     const registerUser = async (data: IDataRegisterUser) => {
-        console.log(data)
         await api.post('/register', data).then((response: AxiosResponse<IApiResponse>) => {
             toast.success(`${response.data.user.name}, seu cadastro está efetuado! Redirecionando à página de Login...`);
             setTimeout(() => {
@@ -68,7 +87,8 @@ export const RegisterProvider = ({ children }: IProviderProps) => {
 
     return <RegisterContext.Provider value={{
         registerUser, showPass, showConfirm,
-        passChangeVisibility, ConfirmChangeVisibility
+        passChangeVisibility, ConfirmChangeVisibility,
+        iconPassword, iconConfirmPass
     }}>
         {children}
     </RegisterContext.Provider>;

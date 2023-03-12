@@ -10,6 +10,9 @@ export const Main = styled.div`
   h1 {
     color: black;
   }
+  @media (max-width: 750px){
+    height: fit-content;
+  }
 `;
 
 export const Container = styled.div`
@@ -19,6 +22,12 @@ export const Container = styled.div`
   margin: 0px auto;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 750px){
+    flex-direction: column-reverse;
+    height: fit-content;
+    padding: 2rem 0;
+  }
 `;
 
 export const Descript = styled.div`
@@ -35,20 +44,46 @@ export const Descript = styled.div`
 
   border-radius: 0px 8px 8px 0px;
   background-color: rgb(232, 232, 232);
+  border-left: 3px solid #eacccc;
+
+  padding-left: 0 1rem;
 
   img {
-    width: 172px;
+    width: 200px;
   }
 
   p {
     width: 339px;
     font-family: "Poppins";
     font-style: normal;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 33px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 150%;
     text-align: center;
   }
+  p > span{
+    color: #00356B;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  span{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 150%;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 750px){
+    padding: 2rem 0;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    p{
+    display: none;
+    }
+  }
+
+
 `;
 
 export const Images = styled.div`
@@ -68,4 +103,10 @@ export const Images = styled.div`
   img {
     width: 172px;
   }
+
+  @media (max-width: 750px){
+    display: none;
+  }
 `;
+
+

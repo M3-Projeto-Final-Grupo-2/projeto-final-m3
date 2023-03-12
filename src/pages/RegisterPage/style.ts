@@ -24,6 +24,7 @@ const StyledRegisterPage = styled.div`
     }
     .page-description > h2{
         display: none;
+        line-height: 150%;
     }
     .page-description > p{
         font-size: 16px;

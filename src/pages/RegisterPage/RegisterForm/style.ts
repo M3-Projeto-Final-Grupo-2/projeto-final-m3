@@ -10,14 +10,12 @@ const StyledRegisterForm = styled.form`
         display: flex;
         flex-direction: column;
         position: relative;
-
         label{
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 0.2rem;
             width: fit-content;
         }
-
         input{
             border-radius: 5px;
             height: 35px;
@@ -29,7 +27,6 @@ const StyledRegisterForm = styled.form`
         input:focus{
             outline: 0;
         } 
-
         p{
             position: absolute;
             top: 60px;
@@ -38,12 +35,15 @@ const StyledRegisterForm = styled.form`
             text-align: end;
             width: 100%;
         }
-
         i{
             position: absolute;
             top: 32px;
             right: 15px;
             color: #5d5454;
+            font-size: 14px;
+        }
+        .onClick{
+            cursor: pointer;
         }
     }
 
