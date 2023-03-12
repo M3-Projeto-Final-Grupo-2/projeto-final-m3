@@ -12,10 +12,12 @@ const LoginPage = () => (
       <Descript>
         <img src={Logo} />
         <p>
-          Conhecer e se aventurar em novos horizontes por meio de outras
+          Conhecer e se aventurar em <span>novos horizontes</span> por meio de outras
           experiências.
         </p>
-
+        <span>
+          Todas as informações para o seu novo destino em um só lugar
+        </span>
         <Images>
           <div>
             {<img src={CataratasdoIguaçu} alt="Cataratas do Iguaçu" />}

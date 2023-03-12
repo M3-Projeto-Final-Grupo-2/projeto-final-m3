@@ -89,4 +89,8 @@ export const FormContainer = styled.form`
     line-height: 25px;
     text-align: center;
   }
+
+  @media (max-width: 750px){
+    border-radius: 5px;
+  }
 `;
