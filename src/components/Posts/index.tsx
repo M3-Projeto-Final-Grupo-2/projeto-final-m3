@@ -19,12 +19,14 @@ const PostsList = () => {
               <div className="postContainer">
                 <div className="postTitle">
                   <div className="userTitle">
+
                     <div className="userLetter">{post?.name[0]}</div>
                     <div className="cityTitle">
                       <h4>{post.userName}</h4>
                       <h4>
                         {post.name}-{post.state}
                       </h4>
+
                     </div>
                   </div>
                 </div>
