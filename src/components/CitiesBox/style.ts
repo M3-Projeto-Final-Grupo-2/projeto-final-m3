@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CitiesSection = styled.section`
-  width: 82.2%;
+  width: 82.2vw;
   background-color: #d9d9d9;
   border-radius: 10px;
   display: flex;
@@ -26,8 +26,8 @@ const CitiesSection = styled.section`
   }
 
   img {
-    width: 100%;
     height: 100%;
+    width: 100%;
   }
 
   ul {

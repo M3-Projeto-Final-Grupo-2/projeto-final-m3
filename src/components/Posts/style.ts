@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const PostsSection = styled.section`
-width: 82.2%;
+width: 82.2vw;
 background-color: #D9D9D9;
 border-radius: 10px;
 display: flex;
