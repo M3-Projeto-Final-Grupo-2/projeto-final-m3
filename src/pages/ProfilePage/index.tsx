@@ -16,7 +16,7 @@ import { ModalCreatePost } from "../../components/Modal/ModalCreatePost";
 
 
 export const ProfilePage = () => {
-  const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
+  const {cities ,logoutUser, homePageUser, modal } = useContext(ProfileContext);
   const { user } = useContext(LoginContext);
   const {modalPost, setModalPost } = useContext(CitiesContext)
   return (
@@ -50,7 +50,13 @@ export const ProfilePage = () => {
             <div className="container__list">
               <h2 className="tilte__card">Suas viagens:</h2>
               <ul>
-                <CardProfile />
+                {cities.length !== 0?<CardProfile />:
+                <li className="empityList">
+                  <span>Opss...</span>
+                  <p>Parece que você ainda não cadastrou nenhuma viagem</p>
+                </li> 
+                }
+                
               </ul>
             </div>
           </StyledMain>

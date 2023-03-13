@@ -9,7 +9,6 @@ import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { LoginContext } from "./loginContext";
-import { CitiesContext } from "./CitiesContext";
 
 export const ProfileContext = createContext({} as IProfileContext);
 

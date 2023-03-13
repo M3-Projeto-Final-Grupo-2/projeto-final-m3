@@ -92,9 +92,6 @@ export const StyledHeader = styled.header`
     }
   }
 
-  /* @media (min-width: 769px) {
-
-  } */
 `;
 
 export const StyledFlexDirection = styled.div`
@@ -134,6 +131,35 @@ export const StyledMain = styled.main`
       overflow: auto;
       height: 50vh;
       margin-bottom: 20px;
+
+      .empityList{
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background-color: white;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        border-radius: 4px;
+
+        span{
+          font-size: 1.5rem;
+          font-weight: bold;
+          color:rgb(0, 53, 107) ;
+        }
+
+        p{
+          width: 90%;
+          align-self: center;
+          background-color: rgb(0, 53, 107);
+          color: white;
+          padding: 5px 10px;
+          border-radius: 4px;
+        }
+      }
     }
   }
   @media (min-width: 769px) {
