@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { CitiesContext, INewPost } from "../../../providers/citiesContext";
+import { CitiesContext, INewPost } from "../../../providers/CitiesContext";
 import { LoginContext } from "../../../providers/loginContext";
 import CreatePostModal, { StyledBackground } from "./style";
 
