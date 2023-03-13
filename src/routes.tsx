@@ -4,7 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
 import HomePage from "./pages/HomePage";
-import { CitiesProvider } from "./providers/citiesContext";
+import { CitiesProvider } from "./providers/CitiesContext";
 import { ProfileProvider } from "./providers/profileContext";
 import { ProtectedRoutes } from "./providers/ProtectedRoutes";
 

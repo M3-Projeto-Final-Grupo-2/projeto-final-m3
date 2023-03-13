@@ -21,7 +21,7 @@ const FormLogin = () => {
   };
 
   return (
-    <FormContainer onClick={handleSubmit(submit)}>
+    <FormContainer onSubmit={handleSubmit(submit)}>
       <h2>Login</h2>
       <Input
         label="Email"
