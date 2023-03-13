@@ -152,7 +152,7 @@ const CreatePostModal = styled.div`
 
 export const StyledBackground = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     position: fixed;
     background: rgba(0, 0, 0, 0.67);
 
