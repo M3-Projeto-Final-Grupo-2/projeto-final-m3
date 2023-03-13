@@ -8,7 +8,9 @@ import Schema from "./schema";
 import { FormContainer } from "./style";
 
 const FormLogin = () => {
-  const { Login } = useContext(LoginContext);
+  const { Login, showPass,
+    passChangeVisibility,
+    passIcon } = useContext(LoginContext);
   const navigate = useNavigate();
   const {
     register,
@@ -30,15 +32,16 @@ const FormLogin = () => {
         placeholder="Digite seu email"
         register={register("email")}
         error={errors.email?.message}
-      />
+      ><i className="fa-solid fa-user"></i></Input>
       <Input
         label="Senha"
-        type="password"
+        type={showPass}
         id="password"
         placeholder="Digite sua senha"
         register={register("password")}
         error={errors.password?.message}
-      />
+      ><i className={passIcon() + " onClick"}
+        onClick={passChangeVisibility}></i></Input>
 
       <button type="submit">Acessar</button>
       <span>Ainda não tem uma conta?</span>
