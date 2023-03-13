@@ -1,36 +1,53 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { ILoginForm, LoginContext } from "../../providers/loginContext";
+import Input from "../Input";
+import Schema from "./schema";
 import { FormContainer } from "./style";
 
 const FormLogin = () => {
-  /* const {} = useContext();
+  const { Login } = useContext(LoginContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver() });
+  } = useForm<ILoginForm>({ resolver: yupResolver(Schema) });
 
-  const submit = (data) => {};
- */
+  const submit = (formdata: ILoginForm) => {
+    Login(formdata);
+  };
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit(submit)}>
       <h2>Login</h2>
-      <fieldset>
-        <label htmlFor="">Email</label>
-        <input type="email" placeholder="Digite seu email" />
-      </fieldset>
-      <fieldset>
-        <label htmlFor="">Senha</label>
-        <input type="password" placeholder="Digite sua senha" />
-      </fieldset>
+      <Input
+        label="Email"
+        type="email"
+        id="email"
+        placeholder="Digite seu email"
+        register={register("email")}
+        error={errors.email?.message}
+      />
+      <Input
+        label="Senha"
+        type="password"
+        id="password"
+        placeholder="Digite sua senha"
+        register={register("password")}
+        error={errors.password?.message}
+      />
 
-      <button>Acessar</button>
+      <button type="submit">Acessar</button>
       <span>Ainda não tem uma conta?</span>
 
       <p>Clicando no botão abaixo você pode se cadastrar rapidamente</p>
 
-      <button>Cadastrar</button>
+      <button type="button" onClick={() => navigate("/register")}>
+        Cadastrar
+      </button>
     </FormContainer>
   );
 };

@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { ProfileContext } from "../../../providers/profileContext";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledBackground, StyledContainerModal } from "./style";
 
 interface IData {
   description: string;
-  image: string;
+  image?: string;
 }
 
 const schema = yup.object({
@@ -15,14 +15,14 @@ const schema = yup.object({
 });
 
 export const ModalProfilePage = () => {
-  const { setModal, cityFromClick, dellCity } = useContext(ProfileContext);
+  const { setModal, cityFromClick, dellCity, editCityFromUser } = useContext(ProfileContext);
   const { register, handleSubmit } = useForm<IData>({
     resolver: yupResolver(schema),
     mode: "onSubmit",
   });
 
-  const getFromData = (data: IData | null) => {
-    console.log(data);
+  const getFromData = (data: IData | any) => {
+    editCityFromUser(data);
   };
   return (
     <>
@@ -39,6 +39,8 @@ export const ModalProfilePage = () => {
             X
           </button>
         </div>
+        <h2 className="h2__description">Sua experiancia atual:</h2>
+        <p className="p__description">{cityFromClick?.description}</p>
         <h2>Edite sua viagem aqui:</h2>
         <form onSubmit={handleSubmit(getFromData)}>
           <label htmlFor="description">Descrição da viagem</label>
@@ -60,7 +62,6 @@ export const ModalProfilePage = () => {
         </form>
       </StyledContainerModal>
         <StyledBackground className="background">
-          <p></p>
         </StyledBackground>
     </>
   );

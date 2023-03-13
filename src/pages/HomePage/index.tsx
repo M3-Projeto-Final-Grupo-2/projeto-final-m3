@@ -1,33 +1,29 @@
+import { useContext } from "react";
 import CitiesList from "../../components/CitiesBox";
 import Header from "../../components/Header";
+import { ModalCreatePost } from "../../components/Modal/ModalCreatePost";
 import PostsList from "../../components/Posts";
-
-
+import { CitiesContext } from "../../providers/CitiesContext";
+import StyledHome from "./style";
 
 const HomePage = () => {
+  const { modalPost } = useContext(CitiesContext);
 
-    
-    return(
-        <main>
-            <Header/>
-            <section>
-                <div>
-                    <div>
-                <h3>Posts</h3>
-                <button>Criar um post</button>
-                    </div>
-                <PostsList/>
-                </div>
-            </section>
-            <section>
-                <div>
-                <h3>Cities</h3>
-                <CitiesList/>
+  return (
+    <main>
+      <Header />
 
-                </div>
-            </section>
-        </main>
-        )
-}
+      <StyledHome>
+        <div className="homeContainer">
+          <PostsList />
+
+          <CitiesList />
+        </div>
+
+        {modalPost ? <ModalCreatePost /> : null}
+      </StyledHome>
+    </main>
+  );
+};
 
 export default HomePage;

@@ -2,28 +2,36 @@ import { Route, Routes } from "react-router-dom";
 import { ProfilePage } from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { RegisterProvider } from "./providers/RegisterContext";
+
+import HomePage from "./pages/HomePage";
+import { CitiesProvider } from "./providers/CitiesContext";
 import { ProfileProvider } from "./providers/profileContext";
+import { ProtectedRoutes } from "./providers/ProtectedRoutes";
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<LoginPage />} />
+    <Route path="/register" element={<RegisterPage />} />
+
     <Route
-      path="/register"
       element={
-        <RegisterProvider>
-          <RegisterPage />
-        </RegisterProvider>
+        <CitiesProvider>
+          <ProfileProvider>
+            <ProtectedRoutes />
+          </ProfileProvider>
+        </CitiesProvider>
       }
-    />
-    <Route
-      path="/profile"
-      element={
-        <ProfileProvider>
-          <ProfilePage />
-        </ProfileProvider>
-      }
-    />
+    >
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route
+        path="/home"
+        element={
+          <CitiesProvider>
+            <HomePage />
+          </CitiesProvider>
+        }
+      />
+    </Route>
   </Routes>
 );
 

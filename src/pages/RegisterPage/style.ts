@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 const StyledRegisterPage = styled.div`
     background-color: #001318;
-
+    min-height: 100vh;
     main{
         padding: 1.5rem 0;
         background-color: #001318;
         width: 100%;
         margin: 0 auto;
+        max-width: 400px;
     }
     .page-description{
         border-radius: 5px;
-        height: 150px;
+        height: 100px;
         width: 90%;
         margin: 0 auto;
         background-color: #E8E8E8;
@@ -23,13 +24,14 @@ const StyledRegisterPage = styled.div`
     }
     .page-description > h2{
         display: none;
+        line-height: 150%;
     }
     .page-description > p{
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
     }
     .page-description > img{
-        width: 250px;
+        width: 200px;
     }
     aside{
         border-radius: 5px;
@@ -48,23 +50,26 @@ const StyledRegisterPage = styled.div`
     }
 
     @media (min-width: 750px){
+        min-height: 100vh;
         main{
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 90%;
-            max-width: 1100px;
-            padding: 4rem 0;
+            width: 100%;
+            padding: 0;
+            max-width: 700px;
+            min-height: 100vh;
         }
         .page-description{
-            min-height: 646px;
+            min-height: 546px;
             margin: 0;
             border-radius: 5px 0 0 5px;
-            border-right: 5px solid #EACCCC;
+            border-right: 3px solid #EACCCC;
+            margin: 0;
         }
         .page-description > h2{
             display: block;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
             width: 80%;
         }
@@ -73,7 +78,8 @@ const StyledRegisterPage = styled.div`
         }
         aside{
             border-radius: 0 5px 5px 0;
-            height: 582px;
+            height: 482px;
+            margin: 0;
         }
     }
 

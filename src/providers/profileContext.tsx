@@ -1,113 +1,164 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { api } from "../services/api";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-
+import { LoginContext } from "./loginContext";
+import { CitiesContext } from "./CitiesContext";
 
 export const ProfileContext = createContext({} as IProfileContext);
 
 interface ICities {
-    userId: number
-    name: string
-    state: string
-    description: string
-    image: string
-    id: number
-    data?: string
+  userId: number;
+  name: string;
+  state: string;
+  description: string;
+  image: string;
+  id: number;
+  data?: string;
 }
 
 interface IProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 interface IData {
-    description: string,
-    image: string
+  description: string;
+  image: string;
 }
 
 interface IProfileContext {
-    editCityFromUser: (data: IData) => Promise<void>
-    cities: ICities[] | Array<null>
-    dellCity: (id: any) => Promise<void>
-    logoutUser: () => void
-    homePageUser: () => void
-    modal: boolean
-    setModal: React.Dispatch<React.SetStateAction<boolean>>
-    cityFromClick: ICities | null
-    setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>
+  editCityFromUser: (data: IData) => Promise<void>;
+  cities: ICities[] | Array<null>;
+  dellCity: (id: any) => Promise<void>;
+  logoutUser: () => void;
+  homePageUser: () => void;
+  modal: boolean;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  cityFromClick: ICities | any;
+  setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>;
+  openModalAddPost: () => any;
 }
 
-
-const userId = 2
-const cityId = 2
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQG1haWwuY29tIiwiaWF0IjoxNjc4MzAxMDA3LCJleHAiOjE2NzgzMDQ2MDcsInN1YiI6IjIifQ._CDb3O-AIKb3jiFwV3-wuyw00oLQj4qxSa7mZi6Jph0"
-
 export const ProfileProvider = ({ children }: IProviderProps) => {
+  const token = localStorage.getItem("@TOKEN");
+  const userId = localStorage.getItem("@USERID");
 
-    const [cities, setCities] = useState<ICities[]>([])
-    // const token = localStorage.getItem("")
+  const [cities, setCities] = useState<ICities[]>([]);
 
-    useEffect(() => {
-        const getAllCitiesFromUser = async () => {
-            try {
-                const response = await api.get(`/cities?userId=${userId}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    }
-                })
-                setCities(response.data)
+  useEffect(() => {
+    const getAllCitiesFromUser = async () => {
+      try {
+        const response = await api.get(`/cities?userId=${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setCities(response.data);
+      } catch (error) {
+        toast.error("Error 404, por favor tente novamente");
+      }
+    };
+    getAllCitiesFromUser();
+  }, [cities]);
+
+  const [cityFromClick, setCityFromClick] = useState<ICities | any>(null);
+
+  const editCityFromUser = async (data: IData) => {
+    try {
+      const response = await api.patch(`/cities/${cityFromClick?.id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const index = cities.indexOf(cityFromClick);
+      const editCity = cities.splice(index, 1);
+      setCities([...cities, editCity[0]]);
+      setModal(false);
+    } catch (error) {
+      toast.error("Error, por favor tente novamente");
+    }
+  };
+
+  const dellCity = async (id: number) => {
+    try {
+      const response = await api.delete(`/cities/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const citiesFiltered = cities.filter((city: ICities) => city.id !== id);
+      setCities(citiesFiltered);
+      setModal(false);
+    } catch (error) {
+      toast.error("Error, por favor tente novamente");
+    }
+  };
+
+  const Navigate = useNavigate();
+
+  const logoutUser = () => {
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@USERID");
+    Navigate("/");
+  };
+
+  const homePageUser = () => {
+    Navigate("/home");
+  };
+
+  const [modal, setModal] = useState(false);
+
+
+  
+  const { setUser, user } = useContext(LoginContext);
+  
+  useEffect(() => {
+      const getUser = async () => {
+          try {
+              const response = await api.get(`/users/${userId}`, {
+                  headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                });
+                setUser(response.data);
+                Navigate("/home");
             } catch (error) {
-                toast.error("Error 404, por favor tente novamente")
+                localStorage.removeItem("@TOKEN");
+                localStorage.removeItem("@USERID");
             }
-        }
-        getAllCitiesFromUser()
-    }, [])
+        };
+        getUser();
+    }, []);
 
-    const editCityFromUser = async (data: IData) => {
-        try {
-            const response = await api.patch(`/cities/${cityId}`, data, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            })
-            setCities(response.data)
-        } catch (error) {
-            toast.error("Error, por favor tente novamente")
-        }
+
+    const {setModalPost} = useContext(CitiesContext)
+
+    const openModalAddPost = () =>{
+        // setModalPost(true)
     }
 
-    const dellCity = async (id: number) => {
-        try {
-            const response = await api.delete(`/cities/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                }
-            })
-            const citiesFiltered = cities.filter((city: ICities) => city.id !== id)
-            setCities(citiesFiltered)
-            setModal(false)
-        } catch (error) {
-            toast.error("Error, por favor tente novamente")
-        }
-    }
-
-    const Navigate = useNavigate()
-
-    const logoutUser = () => {
-        // localStorage.removeItem("")
-        Navigate("/")
-    }
-    const homePageUser = () => {
-        // Navigate("/home")
-
-    }
-
-    const [modal, setModal] = useState(false)
-
-    const [cityFromClick, setCityFromClick] = useState<ICities | null>(null)
-
-
-    return <ProfileContext.Provider value={{ cities, editCityFromUser, dellCity, logoutUser, homePageUser, modal, setModal, cityFromClick, setCityFromClick }}>
-        {children}
-    </ProfileContext.Provider>;
+  return (
+    <ProfileContext.Provider
+      value={{
+        cities,
+        editCityFromUser,
+        dellCity,
+        logoutUser,
+        homePageUser,
+        modal,
+        setModal,
+        cityFromClick,
+        setCityFromClick,
+        openModalAddPost
+      }}
+    >
+      {children}
+    </ProfileContext.Provider>
+  );
 };

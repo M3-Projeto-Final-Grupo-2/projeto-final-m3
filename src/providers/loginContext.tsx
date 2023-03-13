@@ -7,12 +7,12 @@ interface IProviderProps {
   children: React.ReactNode;
 }
 
-interface ILoginForm {
+export interface ILoginForm {
   email: string;
   password: string;
 }
 
-interface IUser {
+export interface IUser {
   email: string;
   name: string;
   id: number;
@@ -34,10 +34,11 @@ export const LoginContextProvider = ({ children }: IProviderProps) => {
   const Login = async (data: ILoginForm) => {
     try {
       const response = await api.post("/login", data);
-      localStorage.setItem("@TOKEN", JSON.stringify(response.data.accessToken));
-      toast.success("Logado com sucesso");
+      localStorage.setItem("@TOKEN", response.data.accessToken);
+      localStorage.setItem("@USERID", response.data.user.id)
       setUser(response.data.user);
-      navigate("/profile");
+      navigate("/home");
+      toast.success("Logado com sucesso");
     } catch (errors) {
       toast.error("Ops, algo deu errado");
     }

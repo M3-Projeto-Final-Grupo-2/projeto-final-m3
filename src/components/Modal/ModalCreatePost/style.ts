@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContainerModal = styled.div`
+const CreatePostModal = styled.div`
   background-color: white;
   position: fixed;
   z-index: 1;
@@ -12,6 +12,13 @@ export const StyledContainerModal = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #d9d9d9;
+
+  
+
+  h3{
+    font-weight: 700;
+    font-size: 28px;
+  }
 
   div {
     margin: 0 auto;
@@ -78,12 +85,13 @@ export const StyledContainerModal = styled.div`
     flex-direction: column;
     width: 95%;
     margin: 0 auto;
-    margin-top: 20px;
+  
 
     label {
       font-size: 0.7rem;
       color: #00356b;
       margin-bottom: 3px;
+      margin-top: 3px;
     }
 
     input {
@@ -91,10 +99,7 @@ export const StyledContainerModal = styled.div`
       border: solid 1px #00356b;
       height: 20px;
     }
-    .container__buttons {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
+
 
       button {
         background-color: #00356b;
@@ -105,35 +110,40 @@ export const StyledContainerModal = styled.div`
         align-self: center;
         border-radius: 8px;
         border: solid 1px #00356b;
+      
 
         :hover{
             background-color: white;
             color: #00356b;
             transition: 0.4s;
         }
-      }
-      span{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        background-color: #8D0606;
-        color: white;
-        width: 80px;
-        height: 30px;
-        margin-top: 15px;
-        align-self: center;
-        border-radius: 8px;
-        border: solid 1px #8D0606;
-
-        :hover{
-            background-color: white;
-            color: #8D0606;
-            transition: 0.4s;
+        
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            background-color: #8D0606;
+            color: white;
+            width: 80px;
+            height: 30px;
+            margin-top: 15px;
+            align-self: center;
+            border-radius: 8px;
+            border: solid 1px #8D0606;
+            
+            :hover{
+                background-color: white;
+                color: #8D0606;
+                transition: 0.4s;
+            }
         }
-      }
     }
-  }
+}
+.errorMsg{
+  font-size: 0.7rem;
+  margin: 5px 0;
+}
   @media (min-width: 769px) {
     width: 612px;
 
@@ -146,5 +156,6 @@ export const StyledBackground = styled.div`
     position: fixed;
     background: rgba(0, 0, 0, 0.67);
 
-
 `
+
+export default CreatePostModal;
