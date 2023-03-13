@@ -1,14 +1,14 @@
 import React from "react";
 import { useContext } from "react";
 import { CitiesContext, IPost } from "../../providers/citiesContext";
+import { LoginContext } from "../../providers/loginContext";
 import PostsSection from "./style";
 
 const PostsList = () => {
 
     const {posts, setModalPost} = useContext(CitiesContext) 
-    console.log(posts.reverse());
     return(
-      <PostsSection> 
+      <PostsSection>  
             <div className="postsBoxContainer">
                     <div className="postsHeader">
                 <h3>Posts</h3>
@@ -20,7 +20,7 @@ const PostsList = () => {
                 <div className="postContainer">
                     <div className="postTitle">
                         <div className="userTitle">
-                        <div className="userLetter">U</div>
+                        <div className="userLetter">{post?.name[0]}</div>
                         <div className="cityTitle">
 
                         <h4>{post.userName}</h4>

@@ -25,7 +25,7 @@ const HomePage = () => {
 
                 <PostsList/>
               
-           
+            
                 <CitiesList/>
       
         </div>
