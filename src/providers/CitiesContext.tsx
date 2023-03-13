@@ -14,7 +14,7 @@ export interface INewPost {
   description: string;
   image: string;
   userName: string;
-}
+} 
 
 export interface IPost {
   id: number;
@@ -74,7 +74,7 @@ export const CitiesProvider = ({ children }: ICityProviderProps) => {
   useEffect(() => {
     async function getPosts() {
       try {
-        const response = await api.get(`/cities/?_embed=users`, { headers });
+        const response = await api.get(`/cities/?_embed=user`, { headers });
         setPosts(response.data);
       } catch (error) {
         console.log(error);

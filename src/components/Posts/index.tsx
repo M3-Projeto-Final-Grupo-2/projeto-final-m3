@@ -1,10 +1,11 @@
-import React from "react";
+import PostsSection from "./style";
 import { useContext } from "react";
 import { CitiesContext, IPost } from "../../providers/CitiesContext";
-import PostsSection from "./style";
 
 const PostsList = () => {
   const { posts, setModalPost } = useContext(CitiesContext);
+  console.log(posts)
+
 
   return (
     <PostsSection>
@@ -19,11 +20,14 @@ const PostsList = () => {
               <div className="postContainer">
                 <div className="postTitle">
                   <div className="userTitle">
-                    <div className="userLetter">U</div>
-                    <div className="cityTitle">
 
+                    <div className="userLetter">{post?.name[0].toLocaleUpperCase()}</div>
+                    <div className="cityTitle">
                       <h4>{post.userName}</h4>
-                      <h4>{post.name}-{post.state}</h4>
+                      <h4>
+                        {post.name}-{post.state}
+                      </h4>
+
                     </div>
                   </div>
                 </div>
@@ -38,3 +42,4 @@ const PostsList = () => {
 };
 
 export default PostsList;
+ 

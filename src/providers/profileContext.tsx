@@ -42,7 +42,6 @@ interface IProfileContext {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   cityFromClick: ICities | any;
   setCityFromClick: React.Dispatch<React.SetStateAction<ICities | null>>;
-  openModalAddPost: () => any;
 }
 
 export const ProfileProvider = ({ children }: IProviderProps) => {
@@ -53,7 +52,6 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
 
   useEffect(() => {
     const getAllCitiesFromUser = async () => {
-      console.log('getAllCitiesFromUser')
       try {
         const response = await api.get(`/cities?userId=${userId}`, {
           headers: {
@@ -138,12 +136,6 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   }, []);
 
 
-  const { setModalPost } = useContext(CitiesContext)
-
-  const openModalAddPost = () => {
-    // setModalPost(true)
-  }
-
   return (
     <ProfileContext.Provider
       value={{
@@ -156,7 +148,6 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
         setModal,
         cityFromClick,
         setCityFromClick,
-        openModalAddPost
       }}
     >
       {children}
