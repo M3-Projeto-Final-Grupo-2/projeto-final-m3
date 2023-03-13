@@ -136,8 +136,6 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   }, []);
 
 
-
-
   return (
     <ProfileContext.Provider
       value={{
