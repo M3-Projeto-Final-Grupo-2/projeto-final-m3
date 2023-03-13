@@ -26,6 +26,10 @@ h3{
     font-size: 20px;
 }
 
+h4{
+    font-size: 16px;
+}
+
 button{
     width: 103px;
     height: 34px;
@@ -40,6 +44,12 @@ button{
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
+
+    :hover{
+        background-color: white;
+        color: #00356B;
+        transition: 0.2s;
+    }
 }
 
 ul{
@@ -110,7 +120,7 @@ p{
     overflow-y: auto;
     }
     h3{
-        font-size: 28px;
+        font-size: 20px;
     }
 
     li{
@@ -141,7 +151,7 @@ p{
     }
 
     h4{
-        font-size: 23px;
+        font-size: 18px;
     }
 
 }
