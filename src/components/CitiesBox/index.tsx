@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { CitiesContext, ICity } from "../../providers/citiesContext";
+import { CitiesContext, ICity } from "../../providers/CitiesContext";
 import CitiesSection from "./style";
 
 const CitiesList = () => {

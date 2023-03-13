@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { CitiesContext, IPost } from "../../providers/citiesContext";
-import { LoginContext } from "../../providers/loginContext";
+import { CitiesContext, IPost } from "../../providers/CitiesContext";
 import PostsSection from "./style";
 
 const PostsList = () => {
