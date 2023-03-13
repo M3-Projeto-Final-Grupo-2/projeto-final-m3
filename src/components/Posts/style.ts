@@ -7,11 +7,12 @@ border-radius: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-top: 10px;
+padding: 20px 0px;
 height: 373px;
 
 .postsBoxContainer {
-    width: 89.88%;
+    width: 90%;
+    height: 400px;
 }
 
 .postsHeader{
@@ -26,14 +27,19 @@ h3{
 }
 
 button{
-    width: 178px;
-    height: 50px;
-    background-color: white;
-    border: 2px solid #00356B;
-    border-radius: 15px;
-    font-weight: 500;
-    font-size: 20px;
-    color: #4E4E4E;
+    width: 103px;
+    height: 34px;
+    border: 2px solid rgb(0, 53, 107);
+    color: white;
+    background-color: rgb(0, 53, 107);
+    border-radius: 4px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 ul{
@@ -42,7 +48,7 @@ ul{
     flex-direction: column;
     gap: 20px;
     overflow-y: auto;
-    max-height: 300px;
+    height: 80%;
 }
 
 li{
@@ -88,22 +94,32 @@ p{
 
 @media(min-width: 1099px){
     max-width: 739px;
-    height: 626px;
+    height: 420px;
+    align-self: flex-start;
+    overflow: hidden;
+
     
     p{
         display: block;
         line-height: 24px;
+        overflow: auto;
     }
 
     ul{
     margin-top: 48px;
     overflow-y: auto;
-    max-height: 520px;
+    }
+    h3{
+        font-size: 28px;
     }
 
     li{
-        width: 628px;
-        min-height: 302px;
+        width: 100%;
+        min-height: 200px;
+    }
+    .postContainer{
+        align-self: baseline;
+        padding-top: 15px;
     }
 
     .userLetter{

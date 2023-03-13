@@ -6,6 +6,7 @@ import PostsSection from "./style";
 const PostsList = () => {
   const { posts, setModalPost } = useContext(CitiesContext);
 
+
   return (
     <PostsSection>
       <div className="postsBoxContainer">
@@ -15,6 +16,7 @@ const PostsList = () => {
         </div>
         <ul>
           {posts.map((post: IPost) => (
+
             <li key={post.id}>
               <div className="postContainer">
                 <div className="postTitle">

@@ -7,15 +7,14 @@ const CitiesSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
   height: 180px;
+  padding-top: 20px;
 
   .citiesBoxContainer {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 97%;
     width: 90%;
-    gap: 15px;
     justify-content: space-between;
   }
 
@@ -55,7 +54,6 @@ const CitiesSection = styled.section`
     min-width: 90px;
     text-align: center;
     gap: 5px;
-    padding-bottom: 10px;
   }
 
   h4 {
@@ -65,7 +63,13 @@ const CitiesSection = styled.section`
 
 @media(min-width: 1099px){
     max-width: 413px;
-    height: 626px;
+    width: 50%;
+    height: 440px;
+    align-self: flex-start;
+    overflow: hidden;
+    padding-top: 20px;
+
+    
    
 
     h3{
@@ -73,8 +77,7 @@ const CitiesSection = styled.section`
     }
 
     .citiesBoxContainer{
-        padding-top: 61px;
-        gap: 61px;
+        gap: 25px;
     }
 
     ul{
@@ -84,7 +87,7 @@ const CitiesSection = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    min-height: 465px;
+    overflow: auto;
     }
 
     li{
@@ -96,7 +99,7 @@ const CitiesSection = styled.section`
 
     span{
         display: block;
-        
+        width: 60px;
     }
 
     .cityText{
