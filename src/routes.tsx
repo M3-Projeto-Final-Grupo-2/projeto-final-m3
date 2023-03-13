@@ -22,7 +22,12 @@ const Router = () => (
         </CitiesProvider>
       }
     >
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route 
+      path="/profile" 
+      element={
+      <CitiesProvider><ProfilePage /></CitiesProvider> 
+      } />
+      
       <Route
         path="/home"
         element={
