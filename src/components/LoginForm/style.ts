@@ -29,6 +29,7 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative;
 
     label {
       font-size: 16px;
@@ -53,6 +54,14 @@ export const FormContainer = styled.form`
       margin-bottom: 1rem;
       text-align: end;
       width: 100%;
+    }
+
+    i{
+      position: absolute;
+      top: 42px;
+      right: 15px;
+      font-size: 14px;
+      color: #5d5454;
     }
   }
   button {
