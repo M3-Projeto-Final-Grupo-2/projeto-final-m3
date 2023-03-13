@@ -6,6 +6,7 @@ import PostsSection from "./style";
 const PostsList = () => {
 
     const {posts, setModalPost} = useContext(CitiesContext) 
+    console.log(posts)
     return(
       <PostsSection>  
             <div className="postsBoxContainer">
