@@ -7,7 +7,7 @@ export const FormContainer = styled.form`
   align-items: center;
   justify-content: space-evenly;
   gap: 12px;
-  width: 100%;
+  width: 90%;
   max-width: 351px;
   margin: 0px auto;
   background-color: rgb(232, 232, 232);
@@ -24,6 +24,7 @@ export const FormContainer = styled.form`
 
   fieldset {
     width: 278px;
+    max-width: 90%;
     height: 94px;
     display: flex;
     flex-direction: column;
@@ -56,13 +57,10 @@ export const FormContainer = styled.form`
   }
   button {
     width: 278px;
+    max-width: 90%;
     height: 40px;
 
-    background-color: rgb(0, 53, 107);
-    color: rgb(255, 255, 255);
-
     border-radius: 5px;
-    border: none;
 
     font-size: 16px;
     font-weight: 700;
@@ -90,7 +88,19 @@ export const FormContainer = styled.form`
     text-align: center;
   }
 
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     border-radius: 5px;
   }
+`;
+
+export const ButtonLogin = styled.button`
+  background-color: rgb(0, 53, 107);
+  color: rgb(255, 255, 255);
+  border: none;
+`;
+
+export const ButtonRegister = styled.button`
+  background-color: white;
+  color: black;
+  border: none;
 `;
