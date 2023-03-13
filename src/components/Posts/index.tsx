@@ -21,7 +21,7 @@ const PostsList = () => {
                 <div className="postTitle">
                   <div className="userTitle">
 
-                    <div className="userLetter">{post?.name[0]}</div>
+                    <div className="userLetter">{post?.name[0].toLocaleUpperCase()}</div>
                     <div className="cityTitle">
                       <h4>{post.userName}</h4>
                       <h4>
@@ -31,10 +31,8 @@ const PostsList = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <>
                 <p>{post.description}</p>
-              </>
+              </div>
             </li>
           ))}
         </ul>
