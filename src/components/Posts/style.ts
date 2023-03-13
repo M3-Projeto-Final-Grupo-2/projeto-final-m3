@@ -31,7 +31,7 @@ h4{
 }
 
 button{
-    width: 103px;
+    width: 113px;
     height: 34px;
     border: 2px solid rgb(0, 53, 107);
     color: white;

@@ -54,11 +54,15 @@ export const ProfilePage = () => {
                 <li className="empityList">
                   <span>Opss...</span>
                   <p>Parece que você ainda não cadastrou nenhuma viagem</p>
+                  <button onClick={() =>{
+                setModalPost(true)
+                }
+                }>Click para adicionar</button>
                 </li> 
                 }
                 
               </ul>
-            </div>
+            </div> 
           </StyledMain>
           <StyledAside>
             <div>

@@ -15,7 +15,7 @@ const HomePage = () => {
 
       <StyledHome>
         <div className="homeContainer">
-
+ 
 
           <PostsList />
 
