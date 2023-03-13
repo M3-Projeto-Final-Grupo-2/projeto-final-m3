@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ILoginForm, LoginContext } from "../../providers/loginContext";
 import Input from "../Input";
 import Schema from "./schema";
-import { FormContainer } from "./style";
+import { ButtonLogin, ButtonRegister, FormContainer } from "./style";
 
 const FormLogin = () => {
   const { Login } = useContext(LoginContext);
@@ -40,14 +40,14 @@ const FormLogin = () => {
         error={errors.password?.message}
       />
 
-      <button type="submit">Acessar</button>
+      <ButtonLogin type="submit">Acessar</ButtonLogin>
       <span>Ainda não tem uma conta?</span>
 
       <p>Clicando no botão abaixo você pode se cadastrar rapidamente</p>
 
-      <button type="button" onClick={() => navigate("/register")}>
+      <ButtonRegister type="button" onClick={() => navigate("/register")}>
         Cadastrar
-      </button>
+      </ButtonRegister>
     </FormContainer>
   );
 };
