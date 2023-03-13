@@ -17,12 +17,7 @@ const HomePage = () => {
         <div className="homeContainer">
           <PostsList />
 
-
-                <PostsList/>
-              
-            
-                <CitiesList/>
-      
+          <CitiesList />
         </div>
 
         {modalPost ? <ModalCreatePost /> : null}
