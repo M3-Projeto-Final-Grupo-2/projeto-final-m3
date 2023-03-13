@@ -6,38 +6,24 @@ import PostsList from "../../components/Posts";
 import { CitiesContext } from "../../providers/CitiesContext";
 import StyledHome from "./style";
 
-
-
 const HomePage = () => {
-    const {modalPost } = useContext(CitiesContext)
+  const { modalPost } = useContext(CitiesContext);
 
-    
-    
-    
-    return(
-        <main>
+  return (
+    <main>
+      <Header />
 
-        <Header/>
-          
-        <StyledHome>
-      
+      <StyledHome>
         <div className="homeContainer">
+          <PostsList />
 
-                <PostsList/>
-              
-            
-                <CitiesList/>
-      
+          <CitiesList />
         </div>
 
-            
-            {modalPost ? <ModalCreatePost /> : null}
-
-        </StyledHome>
-
-        </main>
-        
-        )
-}
+        {modalPost ? <ModalCreatePost /> : null}
+      </StyledHome>
+    </main>
+  );
+};
 
 export default HomePage;

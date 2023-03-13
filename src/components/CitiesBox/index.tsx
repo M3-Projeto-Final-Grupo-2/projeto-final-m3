@@ -12,14 +12,13 @@ const CitiesList = () => {
         <ul>
           {cities.map((city: ICity) => (
             <li key={city.id}>
-
-                <div className="imgContainer"><img src={city.image} alt="Imagem da cidade"/></div>
-                <div className="cityText">
+              <div className="imgContainer">
+                <img src={city.image} alt="Imagem da cidade" />
+              </div>
+              <div className="cityText">
                 <h4>{city.name}</h4>
                 <span>{city.state}</span>
-
-                </div>
-
+              </div>
             </li>
           ))}
         </ul>
