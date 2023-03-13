@@ -4,7 +4,6 @@ import { CitiesContext, IPost } from "../../providers/CitiesContext";
 
 const PostsList = () => {
   const { posts, setModalPost } = useContext(CitiesContext);
-  console.log(posts)
 
 
   return (
@@ -21,9 +20,9 @@ const PostsList = () => {
                 <div className="postTitle">
                   <div className="userTitle">
 
-                    <div className="userLetter">{post?.name[0].toLocaleUpperCase()}</div>
+                    <div className="userLetter">{post.user.name[0].toLocaleUpperCase()}</div>
                     <div className="cityTitle">
-                      <h4>{post.userName}</h4>
+                      <h4>{post.user.name}</h4>
                       <h4>
                         {post.name}-{post.state}
                       </h4>
