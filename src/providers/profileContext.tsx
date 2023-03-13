@@ -53,7 +53,6 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
 
   useEffect(() => {
     const getAllCitiesFromUser = async () => {
-      console.log('getAllCitiesFromUser')
       try {
         const response = await api.get(`/cities?userId=${userId}`, {
           headers: {
@@ -142,6 +141,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
 
   const openModalAddPost = () => {
     // setModalPost(true)
+    console.log("ola")
   }
 
   return (
