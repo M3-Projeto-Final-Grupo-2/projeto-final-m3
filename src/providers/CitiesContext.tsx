@@ -17,13 +17,21 @@ export interface INewPost {
 } 
 
 export interface IPost {
-  id: number;
-  userId: number;
-  name: string;
-  state: string;
-  description: string;
-  image: string;
-  userName: string;
+  userId: string
+  name: string
+  state: string
+  description: string
+  image: string
+  id: number
+  user: User
+}
+
+
+export interface User {
+  email: string
+  password: string
+  name: string
+  id: number
 }
 
 export interface ICity {
@@ -74,7 +82,7 @@ export const CitiesProvider = ({ children }: ICityProviderProps) => {
   useEffect(() => {
     async function getPosts() {
       try {
-        const response = await api.get(`/cities/?_embed=user`, { headers });
+        const response = await api.get(`/cities/?_expand=user`, { headers });
         setPosts(response.data);
       } catch (error) {
         console.log(error);
@@ -82,7 +90,6 @@ export const CitiesProvider = ({ children }: ICityProviderProps) => {
     }
     getPosts();
   }, []);
-
   const registerPost = async (data: INewPost) => {
     try {
       const response = await api.post(`/cities`, data, { headers });
