@@ -125,14 +125,15 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
           },
         });
         setUser(response.data);
-        Navigate("/home");
+        // Navigate("/home");
+        console.log("ola")
       } catch (error) {
         localStorage.removeItem("@TOKEN");
         localStorage.removeItem("@USERID");
       }
     };
     getUser();
-  }, []);
+  }, [user]);
 
 
   return (

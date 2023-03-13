@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { LoginContextProvider } from './loginContext';
+import { ProfileProvider } from './profileContext';
 
 import { RegisterProvider } from './RegisterContext';
 
@@ -12,13 +13,13 @@ function Providers({ children }: IProviderProps) {
 
     <RegisterProvider>
   
-  
+
         {children}
   
 
     </RegisterProvider>
 
-    </LoginContextProvider>
+    </LoginContextProvider> 
 
     )
       
