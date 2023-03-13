@@ -6,10 +6,12 @@ interface IRoute {
   ProtectedRoutes: ()  => JSX.Element
 }
 
+const token = localStorage.getItem("@TOKEN")
+
 
 export const ProtectedRoutes = ()  =>{
 
   const { user } = useContext(LoginContext)
 
-  return user? <Outlet/> : <Navigate to='/'/>
+  return token? <Outlet/> : <Navigate to='/'/>
 } 

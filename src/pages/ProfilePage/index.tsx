@@ -11,11 +11,14 @@ import {
   StyledOver,
 } from "./style";
 import { LoginContext } from "../../providers/loginContext";
+import { CitiesContext } from "../../providers/CitiesContext";
+import { ModalCreatePost } from "../../components/Modal/ModalCreatePost";
+
 
 export const ProfilePage = () => {
-  const { logoutUser, homePageUser, modal, openModalAddPost } =
-    useContext(ProfileContext);
+  const { logoutUser, homePageUser, modal } = useContext(ProfileContext);
   const { user } = useContext(LoginContext);
+  const {modalPost, setModalPost } = useContext(CitiesContext)
   return (
     <>
       <StyledOver>
@@ -60,13 +63,14 @@ export const ProfilePage = () => {
               </p>
               <p>Para fazer isso é simples basta clicar no botão a baixo.</p>
               <button onClick={() =>{
-                openModalAddPost()
+                setModalPost(true)
                 }
                 }>Adicionar viagem</button>
             </div>
           </StyledAside>
         </StyledFlexDirection>
         {modal ? <ModalProfilePage /> : null}
+        {modalPost ? <ModalCreatePost/> : null}
       </StyledOver>
     </>
   );

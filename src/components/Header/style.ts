@@ -24,7 +24,7 @@ span{
     margin-right: 28px;
 }
 
-button{
+button{ 
     width: 65px;
       height: 34px;
       border: 2px solid #00356b;
@@ -66,7 +66,7 @@ button{
 
 .buttonsContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
 
 }

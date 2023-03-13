@@ -62,7 +62,6 @@ export const CitiesProvider = ({ children }: ICityProviderProps) => {
   useEffect(() => {
     async function getCities() {
       try {
-        console.log('getCities')
         const response = await api.get(`/cities`, { headers });
         setCities(response.data);
       } catch (error) {
@@ -74,7 +73,6 @@ export const CitiesProvider = ({ children }: ICityProviderProps) => {
 
   useEffect(() => {
     async function getPosts() {
-      console.log('getPosts')
       try {
         const response = await api.get(`/cities/?_embed=users`, { headers });
         setPosts(response.data);
