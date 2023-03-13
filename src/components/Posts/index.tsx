@@ -1,7 +1,6 @@
-import React from "react";
+import PostsSection from "./style";
 import { useContext } from "react";
 import { CitiesContext, IPost } from "../../providers/CitiesContext";
-import PostsSection from "./style";
 
 const PostsList = () => {
   const { posts, setModalPost } = useContext(CitiesContext);
