@@ -120,6 +120,11 @@ p{
     .postContainer{
         align-self: baseline;
         padding-top: 15px;
+        width: 91.4%;
+        display: flex;
+        flex-direction: column;
+        height: 251px;
+        gap: 32px;
     }
 
     .userLetter{
@@ -133,14 +138,6 @@ p{
         display: flex;
         width: 100%;
         justify-content: space-between;
-    }
-
-    .postContainer{
-        width: 91.4%;
-        display: flex;
-        flex-direction: column;
-        height: 251px;
-        gap: 32px;
     }
 
     h4{
