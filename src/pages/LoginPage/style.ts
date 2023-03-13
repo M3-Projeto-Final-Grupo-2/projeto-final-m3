@@ -10,7 +10,7 @@ export const Main = styled.div`
   h1 {
     color: black;
   }
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     height: fit-content;
   }
 `;
@@ -23,7 +23,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     flex-direction: column-reverse;
     height: fit-content;
     padding: 2rem 0;
@@ -38,7 +38,7 @@ export const Descript = styled.div`
   align-items: center;
   gap: 12px;
 
-  width: 80%;
+  width: 90%;
   max-width: 351px;
   margin: 0 auto;
 
@@ -61,12 +61,12 @@ export const Descript = styled.div`
     line-height: 150%;
     text-align: center;
   }
-  p > span{
-    color: #00356B;
+  p > span {
+    color: #00356b;
     font-size: 18px;
     font-weight: 700;
   }
-  span{
+  span {
     font-size: 16px;
     text-align: center;
     font-weight: 600;
@@ -74,16 +74,14 @@ export const Descript = styled.div`
     margin-top: 0.5rem;
   }
 
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     padding: 2rem 0;
     border-radius: 5px;
     margin-bottom: 1rem;
-    p{
-    display: none;
+    p {
+      display: none;
     }
   }
-
-
 `;
 
 export const Images = styled.div`
@@ -104,9 +102,7 @@ export const Images = styled.div`
     width: 172px;
   }
 
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     display: none;
   }
 `;
-
-
