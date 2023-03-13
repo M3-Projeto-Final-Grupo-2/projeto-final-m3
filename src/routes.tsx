@@ -25,7 +25,11 @@ const Router = () => (
       <Route 
       path="/profile" 
       element={
-      <CitiesProvider><ProfilePage /></CitiesProvider> 
+        <ProfilePage />
+      
+      // <CitiesProvider>
+      // </CitiesProvider> 
+      
       } />
       
       <Route

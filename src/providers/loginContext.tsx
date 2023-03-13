@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
@@ -49,18 +49,20 @@ export const LoginContextProvider = ({ children }: IProviderProps) => {
     return icon;
   }
 
-  const Login = async (data: ILoginForm) => {
+    
+    const Login = async (data: ILoginForm) => {
     try {
       const response = await api.post("/login", data);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@USERID", response.data.user.id)
-      setUser(response.data.user);
       navigate("/home");
+      setUser(response.data.user);
       toast.success("Logado com sucesso");
     } catch (errors) {
       toast.error("Ops, algo deu errado");
     }
   };
+
 
   return (
     <LoginContext.Provider
