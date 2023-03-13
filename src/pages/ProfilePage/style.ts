@@ -70,6 +70,7 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     gap: 20px;
     align-self: center;
+    align-items: center;
     position: absolute;
     bottom: -100px;
 
@@ -91,7 +92,6 @@ export const StyledHeader = styled.header`
       font-size: 1.3rem;
     }
   }
-
 `;
 
 export const StyledFlexDirection = styled.div`
@@ -132,32 +132,49 @@ export const StyledMain = styled.main`
       height: 50vh;
       margin-bottom: 20px;
 
-      .empityList{
+      .empityList {
         align-self: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 35px;
         background-color: white;
         width: 90%;
         height: 90%;
         margin: 0 auto;
         border-radius: 4px;
 
-        span{
+        span {
           font-size: 1.5rem;
           font-weight: bold;
-          color:rgb(0, 53, 107) ;
+          color: rgb(0, 53, 107);
         }
 
-        p{
-          width: 90%;
+        p {
+          width: 80%;
           align-self: center;
           background-color: rgb(0, 53, 107);
           color: white;
           padding: 5px 10px;
           border-radius: 4px;
+        }
+        button {
+          width: 156px;
+          height: 35px;
+          align-self: center;
+          background-color: #00356b;
+          border: solid 2px #00356b;
+          border-radius: 8px;
+          color: white;
+          cursor: pointer;
+          font-weight: 400;
+          font-family: "Poppins", sans-serif;
+
+          :hover {
+            background-color: white;
+            color: #00356b;
+          }
         }
       }
     }

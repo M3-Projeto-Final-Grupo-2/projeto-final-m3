@@ -32,7 +32,6 @@ export const ModalCreatePost = () => {
   }, [reset]);
 
   return (
-    <>
     <CreatePostModal>
 
         <div className="containerButtons">
@@ -67,8 +66,6 @@ export const ModalCreatePost = () => {
       </form>
 
     </CreatePostModal>
-    <StyledBackground className="background">
-        </StyledBackground>
-    </>
+
   );
 };

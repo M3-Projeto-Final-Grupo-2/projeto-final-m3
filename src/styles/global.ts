@@ -54,5 +54,6 @@ table {
 
 button {
 	cursor: pointer;
+	font-family: 'Poppins', sans-serif;
 }
 `;
