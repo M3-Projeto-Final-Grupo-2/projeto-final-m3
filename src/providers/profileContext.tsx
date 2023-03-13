@@ -53,6 +53,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
 
   useEffect(() => {
     const getAllCitiesFromUser = async () => {
+      console.log('getAllCitiesFromUser')
       try {
         const response = await api.get(`/cities?userId=${userId}`, {
           headers: {
@@ -65,7 +66,7 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
       }
     };
     getAllCitiesFromUser();
-  }, [cities]);
+  }, []);
 
   const [cityFromClick, setCityFromClick] = useState<ICities | any>(null);
 
@@ -115,33 +116,33 @@ export const ProfileProvider = ({ children }: IProviderProps) => {
   const [modal, setModal] = useState(false);
 
 
-  
+
   const { setUser, user } = useContext(LoginContext);
-  
+
   useEffect(() => {
-      const getUser = async () => {
-          try {
-              const response = await api.get(`/users/${userId}`, {
-                  headers: {
-                      Authorization: `Bearer ${token}`,
-                    },
-                });
-                setUser(response.data);
-                Navigate("/home");
-            } catch (error) {
-                localStorage.removeItem("@TOKEN");
-                localStorage.removeItem("@USERID");
-            }
-        };
-        getUser();
-    }, []);
+    const getUser = async () => {
+      try {
+        const response = await api.get(`/users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(response.data);
+        Navigate("/home");
+      } catch (error) {
+        localStorage.removeItem("@TOKEN");
+        localStorage.removeItem("@USERID");
+      }
+    };
+    getUser();
+  }, []);
 
 
-    const {setModalPost} = useContext(CitiesContext)
+  const { setModalPost } = useContext(CitiesContext)
 
-    const openModalAddPost = () =>{
-        // setModalPost(true)
-    }
+  const openModalAddPost = () => {
+    // setModalPost(true)
+  }
 
   return (
     <ProfileContext.Provider
