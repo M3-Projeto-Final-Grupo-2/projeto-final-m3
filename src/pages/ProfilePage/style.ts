@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: flex-end;
     gap: 30px;
-    margin-top: 22px;
+    margin-top: 25px;
     margin-right: 28px;
 
     span {

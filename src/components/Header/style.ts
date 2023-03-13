@@ -2,7 +2,7 @@ import  styled from "styled-components";
 
 const StyledHeader = styled.header`
 width: 100vw;
-height: 115px;
+height: 90px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -21,7 +21,6 @@ span{
 .buttonsContainer{
     display: flex;
     gap: 30px;
-    margin-right: 28px;
 }
 
 button{ 
@@ -34,8 +33,9 @@ button{
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
       cursor: pointer;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
 
       :hover {
         background-color: #00356b;
@@ -58,7 +58,7 @@ button{
 }
 
 .headerContainer{
-    width: 88.9%;
+    width: 96%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,6 +71,9 @@ button{
 
 }
 @media(min-width: 1099px){
+    h1{
+        font-size: 20px;
+    }
     .buttonsContainer{
     flex-direction: row;
      gap: 34px;

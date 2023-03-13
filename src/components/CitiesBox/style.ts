@@ -15,7 +15,7 @@ const CitiesSection = styled.section`
     flex-direction: column;
     height: 97%;
     width: 90%;
-    justify-content: space-between;
+    gap: 25px;
   }
 
   .imgContainer {
@@ -58,23 +58,30 @@ const CitiesSection = styled.section`
 
   h4 {
     font-weight: 700;
+    font-size: 16px;
 
 }
 
 @media(min-width: 1099px){
     max-width: 413px;
     width: 50%;
-    height: 440px;
+    height: 432px;
     align-self: flex-start;
     overflow: hidden;
-    padding-top: 20px;
+    padding-top: 30px;
 
     
    
 
     h3{
-        font-size: 28px;
+        font-size: 20px;
     }
+
+    h4 {
+    font-weight: 700;
+    font-size: 18px;
+
+}
 
     .citiesBoxContainer{
         gap: 25px;
@@ -88,6 +95,14 @@ const CitiesSection = styled.section`
     align-items: center;
     gap: 20px;
     overflow: auto;
+    padding-top: 22px;
+    h4{
+      font-size: 16px;
+    }
+
+    span{
+      font-size: 12px;
+    }
     }
 
     li{

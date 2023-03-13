@@ -4,6 +4,7 @@ import { CitiesContext, IPost } from "../../providers/CitiesContext";
 
 const PostsList = () => {
   const { posts, setModalPost } = useContext(CitiesContext);
+  console.log(posts)
 
 
   return (
@@ -15,7 +16,6 @@ const PostsList = () => {
         </div>
         <ul>
           {posts.map((post: IPost) => (
-
             <li key={post.id}>
               <div className="postContainer">
                 <div className="postTitle">
@@ -42,3 +42,4 @@ const PostsList = () => {
 };
 
 export default PostsList;
+ 

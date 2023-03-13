@@ -66,7 +66,7 @@ export const RegisterProvider = ({ children }: IProviderProps) => {
             icon = 'fa-solid fa-eye-slash';
 
         return icon;
-    }
+    } 
 
     const navigate = useNavigate();
 
