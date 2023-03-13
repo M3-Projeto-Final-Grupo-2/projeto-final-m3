@@ -4,6 +4,7 @@ import { CitiesContext, IPost } from "../../providers/CitiesContext";
 import PostsSection from "./style";
 
 const PostsList = () => {
+  const { posts, setModalPost } = useContext(CitiesContext);
 
     const {posts, setModalPost} = useContext(CitiesContext) 
     return(
@@ -28,17 +29,16 @@ const PostsList = () => {
                         </div>
                         
                     </div>
-                    <p>{post.description}</p>
+                  </div>
                 </div>
+                <p>{post.description}</p>
+              </div>
             </li>
-      ))}
-            </ul>
-            </div>
-      </PostsSection>
-      
-
-    )
-    
-}
+          ))}
+        </ul>
+      </div>
+    </PostsSection>
+  );
+};
 
 export default PostsList;
